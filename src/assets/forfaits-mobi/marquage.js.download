@@ -1,0 +1,633 @@
+﻿/*********************
+*                    * 
+*  PLAN DE MARQUAGE  *
+*                    *
+*********************/
+
+/**
+ * Brancher le marquage de l'évenement Interaction sur le Click des éléments class="planMarquage"
+ */
+$('.planMarquage').click(function () {
+	pmPushInteraction(this)
+});
+
+/**
+ * Brancher le marquage de l'évenement ecommerce "Select item" sur le Click des éléments class="pmSelectItem"
+ */
+ $('.pmSelectItem').click(function () {
+	var nomElements = [];
+	var nomElement = this.getAttribute("pmSelectItem");
+	if (nomElement?.length>0) {
+		nomElements[0] = nomElement;
+		planMarquageItemEventEcom(nomElements, pmSelectItemEventEcom);
+	}
+});
+
+/**
+ * Brancher le marquage de l'évenement ecommerce "View item" sur le Click des éléments class="pmViewItem"
+ */
+/* $('.pmViewItem').click(function () {
+	var nomElements = [];
+	var nomElement = this.getAttribute("pmViewItem");
+	if (nomElement?.length>0) {
+		nomElements[0] = nomElement;
+		planMarquageItemEventEcom(nomElements, pmViewItemEventEcom);
+	}
+});*/
+
+/**
+ * Brancher le marquage de l'évenement ecommerce "Add to cart" sur le Click des éléments class="pmAddToCart"
+ */
+ $('.pmAddToCart').click(function () {
+	var nomElements = [];
+	var nomElement = this.getAttribute("pmAddToCart");
+	if (nomElement?.length>0) {
+		nomElements[0] = nomElement;
+		planMarquageItemEventEcom(nomElements, pmAddToCartEventEcom);
+	}
+});
+
+/**
+ *  Brancher le marquage de l'évenement ecommerce "Remove from Cart" sur le Click des éléments class="pmRemoveFromeCart"
+ */
+ $('.pmRemoveFromeCart').click(function () {
+	var nomElements = [];
+	var nomElement = this.getAttribute("pmRemoveFromeCart");
+	if (nomElement?.length>0) {
+		nomElements[0] = nomElement
+		planMarquageItemEventEcom(nomElements, pmRemoveFromeCartEventEcom);
+ 	}
+});
+/**
+ *  Brancher le marquage de l'évenement ecommerce "Edit Cart" sur le Click des éléments class="pmEditCart"
+ */
+ $('.pmEditCart').click(function () {
+	var nomElements = [];
+	var nomElement = this.getAttribute("pmEditCart");
+	if (nomElement?.length>0) {
+		nomElements[0] = nomElement
+		planMarquageItemEventEcom(nomElements, pmEditCartEventEcom);
+ 	}
+});
+/**
+ * Ajouter un marquage de type "Page Variables" dans le dataLayer
+ * @param {string} machineName Nom du serveur
+ */
+function pmPushPagesVariables(machineName) {	
+	// pas de plan de marquage en Call
+	if (pmEstCanalCall()) return;
+
+	var datasend = new Object();
+	datasend.p_is_user_logged = 0;
+	datasend.event='pageview';
+	//datasend.u_id -- uniquement si l'utilisateur est logué
+	//datasend.u_phone_plan -- uniquement si l'utilisateur est logué
+	datasend.p_site = pmGetNomSite();
+	datasend.p_environment = pmGetEnvironnement(datasend.p_site);
+	datasend.p_status_code = '200';
+	datasend.p_cat_1 = pmGetSousSite();
+	datasend.p_cat_2 = pmGetNomPage();
+	datasend.is_internal_trafic = pmGetEstTrafficInterne(machineName);
+
+	marquerDataLayer(datasend);
+}
+
+/**
+ * Ajouter un marquage de type "Events Interaction" dans le dataLayer
+ * - Syntaxe : class="planMarquage" pmCategory="<e_category>" pmAction="<e_action>" pmLabel="<e_label>" pmCodePromo="<s_promo_code>"
+ *   - où <e_action>, <e_label> et <s_promo_code> peuvent être remplacés par une expression de type "texte{aa.bb.cc}texte"
+ *   - où {aa.bb.cc} sera interpreté comme dans les exemples suivant :
+ *      - aa : id du controle, ou this s'il s'agit du controle en cours
+ *      - bb : "value" pour récupérer la valeur du controle (cas d'un input par exemple)
+ *           ; ou nom de l'attribut à récupérer
+ *      - cc : (optionel) traitement sur la valeur récupérée. Si cc="fic" alors on récupère seulement le nom du fichier d'un chemin complet ou d'une url.
+ * 
+ * @param {*} ctrl Element html à partir duquel on appel cette fonction
+ * @example
+ * {this.atl} : retourne le texte de l'attribut "atl" du contrôle en cours
+ * {imgOffre.src} : retourne l'url complète qui est dans l'attribut "src" du controle "imgOffre"
+ * {imgOffre.src.fic} : retourne le nom du fichier (et pas l'url complète) qui est dans l'attribut "src" du controle "imgOffre"
+ * 
+ */
+function pmPushInteraction(ctrl) {
+	// pas de plan de marquage en Call
+	if (pmEstCanalCall()) return;
+
+	// Lecture des attributs
+	var pmCategory = pmGetInfoCtrl(ctrl, 'pmCategory');
+	var pmAction = pmGetInfoCtrl(ctrl, 'pmAction');
+	var pmLabel = pmGetInfoCtrl(ctrl, 'pmLabel');
+	var pmCodePromo = pmGetInfoCtrl(ctrl, 'pmCodePromo');
+
+	// Construction de json
+	var datasend = new Object();
+	datasend.event = 'interaction';
+	if (pmCategory) datasend.e_category = pmCategory;
+	if (pmAction) datasend.e_action = pmAction;
+	if (pmLabel) datasend.e_label = pmLabel;
+	if (pmCodePromo) datasend.s_promo_code = pmCodePromo;
+
+	marquerDataLayer(datasend);
+}
+
+/**
+ * Lecture d'un attribut spécifique du plan de marquage
+ * @param {*} ctrl Element html
+ * @param {string} nomAttribut Nom de l'attribut à récupérer
+ * @returns Retourne la valeur de l'attribut, éventuellement interpreté
+ * @example
+ * "forfait" : retourne le texte "forfait"
+ * "clic::{this.value}" : retourne la valeur du contrôle en cours : "clic::Choisir"
+ * "{imgOffre.src}" : retourne l'url complète qui est dans l'attribut "src" du controle "imgOffre"
+ * "{imgOffre.src.fic}" : retourne le nom du fichier (et pas l'url complète) qui est dans l'attribut "src" du controle "imgOffre" : "monimage.svg"
+ */
+function pmGetInfoCtrl(ctrl, nomAttribut) {
+	// Lire la valeur de l'attribut
+	var valeurAttribut = ctrl.getAttribute(nomAttribut);
+	if (!valeurAttribut ||!valeurAttribut.includes('{') || !valeurAttribut.includes('}'))
+		return valeurAttribut;
+
+	// Rechercher une valeur spécifique
+	var retour = '';
+	const matcher = new RegExp('{(.*?)}','gm')
+	var pattern = valeurAttribut.match(matcher)[0];
+	var valeurs = pattern.replace('{','').replace('}','').split('.');
+
+	// controle
+	var idCtrl = null;
+	if (valeurs[0] == 'this')
+		idCtrl = ctrl;
+	else
+		idCtrl = document.getElementById(valeurs[0]);
+
+	// valeur ou attribut
+	if (valeurs.length > 1) {
+		if (valeurs[1]=='value')
+			retour = idCtrl.value;
+		else
+			retour = idCtrl.getAttribute(valeurs[1]);
+
+		// traitement sur la valeur
+		if (valeurs.length > 2) {
+			// on veut réupérer le nom du fichier seulement
+			if (valeurs[2]=='fic')
+				retour = retour.replace(/^.*[\\\/]/, '');
+		}
+	}
+
+	retour = valeurAttribut.replace(pattern, retour);
+	return retour;
+}
+
+/**
+ * Ajouter un marquage de type "Events Ecommerce" dans le dataLayer
+ * Les objects à récupérer doivent avoir une des classes "pmViewItemList", "pmSelectItem", "pmViewItem", "pmAddToCart", "pmRemoveFromeCart"
+ * Les propriétés récupérées dépendent des attributs de chaque élément:
+ * - pmId
+ * - pmName
+ * - pmPosition
+ * - pmPrice
+ * - pmCategory
+ * - pmBrand
+ * - pmPhonePlan
+ */
+
+const pmViewItemListEventEcom = 'view_item_list';
+const pmSelectItemEventEcom = 'select_item';
+const pmViewItemEventEcom = 'view_item';
+const pmAddToCartEventEcom = 'add_to_cart';
+const pmRemoveFromeCartEventEcom = 'remove_from_cart';
+const pmEditCartEventEcom = 'edit_cart';
+const pmBeginCheckoutEventEcom = 'begin_checkout';
+const pmBeginCheckoutVirtualPageVienEvent = 'v_pageview';
+
+/**
+ * Ajouter le marquage de l'évenement ecommerce view_item_list
+ */
+function planMarquageViewItemListEventEcom() {
+	planMarquageListeEventEcom('pmViewItemList', pmViewItemListEventEcom);
+}
+
+/**
+ * Ajouter le marquage de l'évenement ecommerce view_item
+ */
+ function planMarquageViewItemEventEcom() {
+	planMarquageListeEventEcom('pmViewItem', pmViewItemEventEcom);
+}
+
+/**
+ *  Ajouter le marquage ecommerce avec les id des éléments
+ * @param {string[]} nomElements Tableau d'id des éléments html
+ * @param {string} typeEvent Type d'évènement
+ */
+ function planMarquageItemEventEcom(nomElements, typeEvent) {
+	if (pmEstCanalCall()) return;
+
+	var products = [];
+	var position = 0;
+	nomElements.forEach(nomElement => {
+		var element = document.getElementById(nomElement);
+		var dataProduct = getProductEventEcom($(element)[0], typeEvent);
+		if (dataProduct) {
+			//dataProduct.pr_position = position + 1;
+			products[position++] = dataProduct;
+		}
+	});
+
+	// redéfinir la position
+	if (products.length > 0 && (!products[0].pr_position || products[0].pr_position <= 0)) {
+		position = 0;
+		products.forEach(item => item.pr_position = ++position)
+	}
+
+	var dataEvent = new Object();
+	dataEvent.event = typeEvent;
+		
+	Object.defineProperty(dataEvent, typeEvent, { value: products, enumerable: true, writable: false });
+	
+	marquerDataLayer(dataEvent);
+}
+
+/**
+ *  Ajouter le marquage de l'évenement ecommerce begin_checkout
+ * @param {number} etape Numéro de l'étape du Checkout
+ * @param {string} codePromo Code promo
+ */
+ function planMarquageBeginCheckoutEventEcom(etape, codePromo, typePayment) {
+	if (pmEstCanalCall()) return;
+
+	var monthly_payment = '1X';
+	if(typePayment ===1)
+	{
+		monthly_payment = '4X';
+	}else if(typePayment ===2){
+		monthly_payment = '24X';
+	}
+	var dataEvent = new Object();
+	var products = getProductsEventEcom('pmBCheckout', pmBeginCheckoutEventEcom, true);
+
+	dataEvent.event = pmBeginCheckoutEventEcom;
+	dataEvent.c_step = etape;
+	dataEvent.c_coupon_code = codePromo;
+	dataEvent.monthly_payment = monthly_payment;
+	Object.defineProperty(dataEvent, pmBeginCheckoutEventEcom, { value: products, enumerable: true, writable: false });
+
+	marquerDataLayer(dataEvent);
+}
+
+/**
+ *  Ajouter le marquage de l'évenement pages virtual(blocs page option)
+ * @param {string} bloc name 
+ */
+function planMarquageBeginCheckoutVirtualPage(blocName){
+	
+	// pas de plan de marquage en Call
+	if (pmEstCanalCall()) return;
+	
+	var dataEvent = new Object();
+    var blocText = getBlocName(blocName)
+	dataEvent.event = pmBeginCheckoutVirtualPageVienEvent;
+	dataEvent.p_path = '/commande/options/' +  blocText;
+	dataEvent.p_name = 'Checkout step 1 - ' + blocText;
+	
+
+	marquerDataLayer(dataEvent);
+	
+}
+
+	
+function planMarquageBeginCheckoutVirtualEtape(numeroEtape, path, name =null){
+	
+	// pas de plan de marquage en Call
+	if (pmEstCanalCall()) return;
+	if (name == null) name = path;
+	
+	var dataEvent = new Object();
+	dataEvent.event = pmBeginCheckoutVirtualPageVienEvent;
+	dataEvent.p_path = '/commande/' + path;
+	dataEvent.p_name = 'Checkout step ' + numeroEtape +' - ' + name;	
+
+	marquerDataLayer(dataEvent);	
+}
+
+function planMarquageBeginCheckoutVirtualPagePaiement(step){
+	
+	// pas de plan de marquage en Call
+	if (pmEstCanalCall()) return;
+	
+	var dataEvent = new Object();
+	
+	var blocText = '';
+	switch(step) {
+		case 'mensuel':
+			blocText = 'paiement-mensuel';
+			break;
+		case 'jour':
+			blocText  = 'paiement-jour';
+			break;
+	}
+	dataEvent.event = pmBeginCheckoutVirtualPageVienEvent;
+	dataEvent.p_path = '/commande/' +  blocText;
+	dataEvent.p_name = 'Checkout step 3 - ' + blocText;
+
+
+	marquerDataLayer(dataEvent);
+}
+
+// function pour convertir les noms des blocs au text dans le doc plan de marquage
+function getBlocName(blocName){
+
+// var blocs = ['portabilite', 'assurance', <%=OptionExiste?"'option',":""%>  'facturation', 'accessoires', 'parrainage', 'remiseBoxSFR', 'codepromo', 'annuaireuniversel'];
+
+
+	switch(blocName) {
+		case 'portabilite':
+			return 'conservation-numéro';
+			break;
+		case 'assurance':
+			return 'assurance-mobile';
+			break;
+		case 'option':
+			return 'choix-options';
+			break;
+		case 'facturation':
+			return 'facturation';
+			break;
+		case 'accessoires':
+			return 'accessoires';
+			break;
+		case 'parrainage':
+			return 'parrainage';
+			break;	
+		case 'remiseBoxSFR':
+			return 'remise-box';
+			break;	
+		case 'codepromo':
+			return 'codepromotionnel';
+			break;	
+		case 'annuaireuniversel':
+			return 'annuaire-universel';
+			break;	
+			
+			
+		  default: ''
+			// code block
+	}
+  return '' ;
+}
+	
+
+/**
+ * Ajouter le marquage de l'évenement ecommerce "standard"
+ * @param {string} pmClass Nom de l'évenement ecommerce : const pm*Event
+ * @param {string} typeEvent Nom de l'évenement ecommerce : const pm*Event
+ */
+function planMarquageListeEventEcom(pmClass, typeEvent) {
+	if (pmEstCanalCall()) return;
+
+	var products = getProductsEventEcom(pmClass, typeEvent, typeEvent == pmViewItemListEventEcom);
+
+	var dataEvent = new Object();
+	dataEvent.event = typeEvent;
+	Object.defineProperty(dataEvent, typeEvent, { value: products, enumerable: true, writable: false });
+	
+	marquerDataLayer(dataEvent);
+}
+
+/**
+ * Retourne la liste des objets Product de l'événement ecommerce
+ * @param {string} pmClass Nom de la classe css
+ * @param {string} typeEvent Type d'évènement
+ * @param {boolean} setPosition Redéfinir la position dans la liste
+ * @returns Tableau d'objects Product
+ */
+function getProductsEventEcom(pmClass, typeEvent, setPosition) {
+	var products = [];
+	var position = 0;
+	$('.' + pmClass).each(
+		function (index, value){
+			var dataProduct = getProductEventEcom(this, typeEvent);
+			if (dataProduct != null) {
+				position++;
+				if (setPosition) {
+					this.setAttribute('pmPosition', position);
+					dataProduct.pr_position = position;
+				}
+				products[position - 1] = dataProduct;
+			}
+		}
+	);
+	return products;
+}
+
+/**
+ * Retourne un object Product pour la liste de l'événement ecommerce
+ * @param {*} item élément html
+ * @param {string} typeEvent type d'évenement
+ * @returns Product
+ */
+function getProductEventEcom(item, typeEvent) {
+
+	var classe = item.getAttribute("class");
+	if (classe && classe.search(/hidden/i) > 0)
+		return null;
+
+	var product = new Object();
+
+	// optional: add_to_cart
+	var pr_id = getAttributeOptional(item, 'pmId', null);
+	if (pr_id == null && typeEvent == pmAddToCartEventEcom) {
+		/* rien */
+	} else {
+		product.pr_id = pr_id;
+	}
+	
+	// mandatory
+	product.pr_name = getAttributeOptional(item, 'pmName', '');
+
+	// mandatory, numerique
+	product.pr_position = parseInt(item.getAttribute('pmPosition'));
+
+	// optional: view_item, remove_from_cart
+	// numerique
+	var pr_price = getAttributeOptional(item, 'pmPrice', null);
+	if (pr_price == null && (typeEvent == pmViewItemEventEcom || typeEvent == pmViewItemEventEcom)) {
+		/* rien */
+	} else {
+		product.pr_price = parseFloat(pr_price);
+	}	
+	
+	// optional: add_to_cart
+	var pr_category = getAttributeOptional(item, 'pmCategory', null);
+	if (pr_category == null && typeEvent == pmAddToCartEventEcom) {
+		/* rien */
+	} else {
+		product.pr_category = pr_category;
+	}
+
+	// optional: add_to_cart, remove_from_cart
+	var pr_brand = getAttributeOptional(item, 'pmBrand', '');
+	if (pr_brand == null && (typeEvent == pmAddToCartEventEcom || typeEvent == pmRemoveFromeCartEventEcom)) {
+		/* rien */
+	} else {
+		product.pr_brand = pr_brand;
+	}
+
+	// optional: add_to_cart
+	var pr_phoneplan = getAttributeOptional(item, 'pmPhonePlan', null);
+	if (pr_phoneplan == null && typeEvent == pmAddToCartEventEcom) {
+		/* rien */
+	} else {
+		product.pr_phoneplan = pr_phoneplan;
+	}
+	
+// optional: begin_checkout
+	var product_type = getAttributeOptional(item, 'pmtype', null);
+	if (product_type != null && typeEvent == pmBeginCheckoutEventEcom) { 
+		product.product_type = product_type;
+	}
+	// uniquement si begin_checkout ou Remove From Cart
+	if (typeEvent == pmRemoveFromeCartEventEcom 
+		|| typeEvent == pmAddToCartEventEcom
+		|| typeEvent == pmBeginCheckoutEventEcom) {
+		product.pr_quantity = 1;
+	}
+
+	return product;
+}
+
+/**
+ * Retourne la valeur d'un attribut. Si cet attribut est absent ou a une valeur vide alors retourne une valeur par défaut
+ * @param {*} item Elément html
+ * @param {string} nomAttribut Nom de l'attribut
+ * @param {*} valeurDefaut Valeur retournée si l'attribut est absent ou vide
+ * @returns valeur de l'attribut ou valeurDefaut
+ */
+function getAttributeOptional(item, nomAttribut, valeurDefaut) {
+	var valeur = item.getAttribute(nomAttribut);
+	if (valeur == null || valeur == '')
+		return valeurDefaut;
+	return valeur;
+}
+
+/**
+ * Ajouter le marquage dans la dataLayer
+ * @param {*} data Objet à pousser dans le dataLayer
+ */
+function marquerDataLayer(data) {
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	
+	if (!containsObject(data,dataLayer )){
+		window.didomiOnReady = window.didomiOnReady || [];
+		window.didomiOnReady.push(function () {
+			dataLayer.push(data);
+		});
+	}
+	
+}
+function containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (JSON.stringify(list[i]) === JSON.stringify(obj)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Vérifier si le canal en cours est celui du Call (dans le Cookie 'LaPosteMobile')
+ * @returns Retourne true si le canal en cours est celui du Call
+ */
+function pmEstCanalCall() {
+	// Lecture du cookie
+	var cookie = getCookieLPM('LaPosteMobile');
+
+	// decoder les parametres
+	var regex = new RegExp('[\\?&]IdOrigineSouscription([^&#]*)');
+	var results = regex.exec('?'+cookie);
+
+	// vérifier le parametre
+	if (results) {
+		var idOrigine = results[1].replace('=','');
+		return idOrigine == '2';
+	}
+	
+	return false;
+}
+function getCookieLPM(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0)
+            return c.substring(name.length, c.length);
+    }
+    return "";
+}
+/**
+ * Retourne le nom du site 'www' ou 'mobile'
+ */
+function pmGetNomSite() {
+	var items = window.location.host.toLowerCase().split('.', 1);
+	if (items.length > 0) return items[0];
+	return '';
+}
+
+/**
+ * Retourne l'environnement de la page
+ * @param {string} site nom du site : 1ère particule après //
+ */
+function pmGetEnvironnement(site) {
+	// prod	
+	if (site == 'www' || site == 'mobile') return 'prod';
+
+	// preprod
+	if (site.indexOf('-preprod') > 0) return 'preprod';
+
+	// recette
+	if (site.indexOf('-rct') > 0) return 'recette';
+
+	// mco
+	if (site.indexOf('-mco') > 0) return 'mco';
+
+	// dev (tous le reste)
+	return 'dev'
+}
+
+/**
+ * Retourne le nom du sous-site (1er élément du pathname)
+ * @example
+ * Pour 'https://mobile.lapostemobile.fr/selection/forfaits-sans-engagement',
+ * Retourne 'selection'
+ */
+function pmGetSousSite() {
+	var items = window.location.pathname.split('/').filter(function(i){return i});
+	if (items.length > 0) return '/' + items[0];
+	return '/';
+}
+
+/**
+ * Retourne le nom de la page (2ème ou dernier élément du pathname)
+ * @example
+ * Pour 'https://mobile.lapostemobile.fr/selection/forfaits-sans-engagement',
+ * Retourne 'forfaits-sans-engagement'
+ */
+ function pmGetNomPage() {
+	var items = window.location.pathname.split('/').filter(function(i){return i});
+	if (items.length > 0) return '/' + items[items.length - 1];
+	return '/';
+}
+
+/**
+ * Indique si le traffic est interne
+ * @param {string} machineName Nom du serveur
+ * @returns 1 si le traffic est interne, sinon 0
+ */
+function pmGetEstTrafficInterne(machineName) {
+	if (machineName.indexOf('1001') + machineName.indexOf('1002') + machineName.indexOf('1003') > 0) return 0
+
+	return 1;
+}

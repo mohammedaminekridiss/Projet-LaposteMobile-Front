@@ -1,0 +1,188 @@
+ main {
+    margin-top: 0; /* Réduire la marge supérieure à 0 */
+}
+ 
+ .carousel {
+    margin: 20px 0;
+}
+.bloc_prix{background-color:#ffffff;}
+
+.carousel-indicators {
+    bottom: -40px !important;
+}
+
+
+.bloc_choix label {
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.slick-custom-prev, .slick-custom-next {
+    background-color: #F2F7FB !important;
+}
+
+.slick-carousel {
+    min-height: 460px !important;
+    width: 400px;
+}
+
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.slick-slide img {
+    margin: auto;
+}
+
+
+ main {
+    background-color: #F2F7FB;
+}
+
+.besoinAide {
+    position: fixed;
+    right: 0;
+    top: 70%;
+    width: 22px;
+    z-index: 9999;
+    overflow: hidden;
+    transition: width .35s ease;
+}
+
+.td {
+    display: table-cell;
+}
+
+.half-circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 2px solid transparent;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    -webkit-animation: rotate 2s infinite linear;
+    -moz-animation: rotate 2s infinite linear;
+    animation: rotate 2s infinite linear;
+}
+
+
+
+.btn-group > .btn {
+    border-radius: 10px !important;
+}
+
+    .btn-group > .btn:hover {
+        border-radius: 10px !important;
+    }
+
+.btn-group > .btn-bgGray {
+    background-color: lightgray !important;
+    border-color: lightgray !important;
+    border-radius: 10px !important;
+}
+
+    .btn-group > .btn-bgGray:hover {
+        background-color: lightsteelblue !important;
+        border-color: lightsteelblue !important;
+        border-radius: 10px !important;
+    }
+
+.btn-bgGray {
+    background-color: lightgray !important;
+    border-color: lightgray !important;
+    border-radius: 5px !important;
+}
+
+    .btn-bgGray:hover {
+        background-color: lightsteelblue !important;
+        border-color: lightsteelblue !important;
+        border-radius: 5px !important;
+    }
+
+@-moz-keyframes rotate {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+ 
+ 
+.slick-list {
+    padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .slick-slide {
+        width: 100% !important;
+    }
+}
+ 
+
+
+
+@media (min-width: 992px) {
+    .navbar {
+        -webkit-transition: padding 0.2s ease;
+        -moz-transition: padding 0.2s ease;
+        -o-transition: padding 0.2s ease;
+        transition: padding 0.2s ease;
+    }
+
+    .affix {
+        /*padding-top: 0.2em !important;*/
+        padding-bottom: 0.2em !important;
+        -webkit-transition: padding 0.2s linear;
+        -moz-transition: padding 0.2s linear;
+        -o-transition: padding 0.2s linear;
+        transition: padding 0.2s linear;
+    }
+
+        .affix .navbar-collapse {
+            height: 30px;
+            padding-top: 4px;
+        }
+
+        .affix .navbar-brand {
+            width: 42px;
+        }
+
+        .affix .r_nav {
+            height: 50px;
+            padding-top: 55px;
+            overflow: hidden;
+            background-size: 22px;
+        }
+
+        .affix .navbar-nav .active .nav-link {
+            border-bottom: 0;
+        }
+
+        .affix .panier {
+            background-position-y: 16px;
+        }
+
+    .navbar-expand-lg .navbar-collapse {
+        margin-left: 68px;
+    }
+}

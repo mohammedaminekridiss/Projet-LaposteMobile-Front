@@ -1,0 +1,74 @@
+﻿/* Code du contrôle usrSwitch3Etats */
+var pointerX = -1;
+var pointerY = -1;
+var pointerTouchX = -1;
+var pointerTouchY = -1;
+
+/*
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.getElementById('movieShow').addEventListener('touchmove', function (e) {
+    console.log(e.touches[0].pageX);
+}, false);
+*/
+
+document.onmousemove = function (event) {
+    pointerX = event.pageX;
+    pointerY = event.pageY;
+}
+
+document.touchstart = function (event) {
+    pointerTouchX = event.touches[0].pageX;
+    pointerTouchY = event.touches[0].pageY;
+}
+
+function cocheOui(rbOuiClientId) {
+    $('#' + rbOuiClientId).prop('checked', true);
+    __doPostBack(rbOuiClientId);
+}
+
+function cocheNon(rbNonClientId) {
+    $('#' + rbNonClientId).prop('checked', true);
+    __doPostBack(rbNonClientId);
+}
+
+function cocheInverse(spanClientId, rbOuiClientId, rbNonClientId) {
+
+    var right = document.getElementById(spanClientId).getBoundingClientRect().right;
+
+    if ($('#' + rbOuiClientId).is(':checked') ||
+        $('#' + rbNonClientId).is(':checked')) {
+
+        if ($('#' + rbOuiClientId).is(':checked')) {
+            $('#' + rbNonClientId).prop('checked', true);
+            __doPostBack(rbNonClientId)
+        }
+        else {
+            $('#' + rbOuiClientId).prop('checked', true);
+            __doPostBack(rbOuiClientId)
+        }
+    }
+    else {
+
+        if (pointerX > right - 65 && pointerX < right - 32.5) {
+            $('#' + rbNonClientId).prop('checked', true);
+            __doPostBack(rbNonClientId)
+        }
+        else if (pointerX > right - 32.5 && pointerX < right) {
+            $('#' + rbOuiClientId).prop('checked', true);
+            __doPostBack(rbOuiClientId)
+        }
+        else if (pointerTouchX > right - 65 && pointerTouchX < right - 32.5) {
+            $('#' + rbNonClientId).prop('checked', true);
+            __doPostBack(rbNonClientId)
+        }
+        else if (pointerTouchX > right - 32.5 && pointerTouchX < right) {
+            $('#' + rbOuiClientId).prop('checked', true);
+            __doPostBack(rbOuiClientId)
+        }
+        else {
+            $('#' + rbOuiClientId).prop('checked', true);
+            __doPostBack(rbOuiClientId)
+        }
+    }
+}
+/* fin usrSwitch3Etats */

@@ -1,0 +1,83 @@
+﻿.sectionLPM .row {
+margin:0 auto !important;}
+
+.container_detail_offre h2{padding-left:10px;padding-bottom:15px;font-size:24px;font-family:'Nexa-heavy',sans-serif;}
+.bouton_detail_offre_sim {display:block; background:url('https://medias-preprod.lapostetelecom.local/portail_mobile/img/picto_download_03.png') no-repeat left center;padding-left:45px;padding-right:25px;}
+.bouton_detail_offre_sim:hover {display:block; background:url('https://medias-preprod.lapostetelecom.local/portail_mobile/img/picto_download_hover_03.png') no-repeat left center;padding-left:45px;padding-right:25px;text-decoration:underline;}
+.bouton_detail_offre_fam {display:block; background:url('https://medias-preprod.lapostetelecom.local/portail_mobile/img/picto_download_03.png') no-repeat left center;padding-left:45px;padding-right:25px;}
+.bouton_detail_offre_fam:hover {display:block; background:url('https://medias-preprod.lapostetelecom.local/portail_mobile/img/picto_download_hover_fam_03.png') no-repeat left center;padding-left:45px;padding-right:25px;text-decoration:underline;}
+.container_detail_offre section {margin-bottom:25px;}
+ .voir-plus {
+    font-size:16px;
+    text-align:center;
+    color:#ffffff;
+    font-family:Nexa-bold;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+}
+
+ .voir-plus a:hover {
+    color:#000000;
+    text-decoration:none;
+}
+.voir-plus a {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    color: #323232;
+    padding: 7px 15px;
+    transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+    z-index: 10;
+}
+.voir-plus a::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 15px;
+    text-align: right;
+    width: calc(100% - 30px);
+    height: 3px;
+    background: #0066B1;
+    transform: translateZ(0);
+    transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+    z-index: -1;
+    border-radius: 20px;
+    }
+.voir-plus a:hover {
+    color: #fff;
+    cursor: pointer;
+}
+.voir-plus a:hover::after {
+    transform: translateX(-15px);
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+@media (min-width:1200px){
+.container_detail_offre{margin:0 auto;background:#f3f3f3;padding-top:5px;padding-bottom:5px;height:220px;text-align:center;}
+.inline{display:inline-block;}
+.container_footer{margin:0 auto;background:#F2F7FB;padding-top:25px;padding-bottom:25px;}
+.container_footer article{width:20%;text-align:center;}
+}
+
+@media (min-width:990px) and (max-width:1199px){
+.container_detail_offre{width:95%;margin:0 auto;background:#f3f3f3;padding-top:25px;padding-bottom:25px;height:250px;}
+.inline{display:inline-block;}
+.container_footer{width:95%;margin:0 auto;background:#f3f3f3;padding-top:25px;padding-bottom:25px;}
+.container_footer article{width:20%;text-align:center;}
+}
+
+@media (min-width:767px) and (max-width:990px){
+.container_detail_offre{width:766px;margin:0 auto;background:#f3f3f3;padding-top:5px;padding-bottom:25px;height:320px;}
+.inline{display:block; margin-bottom:10px;}
+.container_footer{display:none;}
+
+}
+
+@media (max-width:766px){
+.container_detail_offre{width:90%; margin:0 auto;background:#f3f3f3;padding-top:5px;padding-bottom:25px;height:320px;}
+.inline{display:block; margin-bottom:10px;}
+.btn-BlackWhite{font-size:12px;}
+.container_footer{display:none;}
+}

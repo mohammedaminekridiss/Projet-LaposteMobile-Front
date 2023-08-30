@@ -1,0 +1,409 @@
+.shadows {
+box-shadow: 0px 10px 14px #00000029;
+}
+
+/** SECTION COVER **/
+.box_cover {
+  background-color: #53234D;
+  height:220px;
+}
+.box_cover p{
+  margin-top:50px;
+  color:#fff;
+  font-size:30px;
+  text-transform: uppercase;
+}
+@media screen and (max-width:767px) {
+  .box_cover p{
+    font-size:20px;
+  }
+}
+.box_cover p strong{
+  font-family:Nexa-heavy;
+}
+.box_cover .container {
+  height:220px;
+  background-image: url("https://static.s-sfr.fr/media/v2/assets/images/jpg/mea_box8.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (min-width:991px) {
+  .box_cover .container {
+    background-position:50%;
+  }
+}
+
+.box_cover .arguments {
+  margin-top:50px;
+}
+
+.box_cover .arguments li{
+  color:#FFFFFF;
+  list-style-type:'- ';
+  font-size:20px;
+  padding:2px 0px;
+}
+
+@media screen and (max-width:990px) {
+  .box_cover .arguments {
+    display:none;
+  }
+}
+/** SECTION COVER **/
+
+/** SECTION TITLE **/
+.box_title {
+  /*background-color: #FFCC00;*/
+}
+.box_title h1 {
+  font-size:24px;
+  font-family:Nexa-heavy;
+  text-transform: uppercase;
+  text-align: center;
+  padding:10px 0px;
+  margin:20px 0px;
+}
+/** SECTION TITLE **/
+
+/** SECTION OFFRES **/
+.box_offres {
+  background-color: #F2F2F2;
+}
+.box_offres h2 {
+  font-family:Nexa-black;
+  font-size:24px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  text-align: left;
+  margin-top:40px;
+}
+.box_offres .offre-box {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom:25px;
+}
+.box_offres .offre-box .radius {
+  border-radius:10px;
+  box-shadow: 0px 10px 14px #00000029;
+}
+.box_offres .offre-box .title {
+  border-radius:10px 10px 0px 0px;
+  background:linear-gradient(0.25turn,#871C80, #E1001B);
+}
+.box_offres .offre-box .title h3 {
+  text-transform: uppercase;
+  font-family:Nexa-black;
+  color:#ffffff;
+  padding:25px 20px;
+  font-size:20px;
+}
+.box_offres .offre-box .contenu {
+  background-color:#ffffff;
+  margin-top:-10px;
+  padding:0px 20px;
+  min-height:350px;
+}
+
+.box_offres .offre-box .contenu li {
+  color:#000;
+  font-family:Nexa;
+  font-size:14px;
+  padding:14px 0px;
+  border-bottom: 1px solid #d2d2d2;
+}
+.box_offres .offre-box .contenu li:last-child {
+  border-bottom: 0px;
+}
+.box_offres .offre-box .action {
+  padding:0px 20px 20px 20px;
+  background-color: #ffffff;
+  border-top:1px solid #d2d2d2;
+  border-radius: 0px 0px 10px 10px;
+}
+.box_offres .offre-box .action .price {
+  padding:0;
+  margin-top:16px;
+}
+.box_offres .offre-box .action .price .promoprice {
+  background:linear-gradient(0.25turn,#871C80, #E1001B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:22px;
+  font-family:Nexa-heavy;
+  font-weight:200;
+}
+.box_offres .offre-box .action .price .promoprice .taxes{
+  font-size:16px;
+}
+.box_offres .offre-box .action .price .afterprice {
+  color:grey;
+  font-size:10px;
+}
+.box_offres .offre-box .action .cta {
+  margin-top:26px;
+}
+.box_offres .offre-box .action .cta a {
+  border:1px red solid;
+  border-radius:5px;
+  padding:10px 14px;
+  text-transform: uppercase;
+  background:linear-gradient(0.25turn,#871C80, #E1001B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:12px;
+  font-family:Nexa-bold;
+}
+
+.box_offres .offre-box .debit {
+  width: 10px;
+  height: 10px;
+  background: url(https://static.s-sfr.fr/media/v2/assets/images/svg/d-bit.svg) center no-repeat;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.box_offres .offre-box .debit_up {
+  width: 10px;
+  height: 10px;
+  background: url(https://static.s-sfr.fr/media/v2/assets/images/svg/d-bit.svg) center no-repeat;
+  display: inline-block;
+  margin-right: 3px;
+  transform:rotate(180deg);
+}
+
+/** SECTION OFFRES **/
+
+/** SECTION BONS PLANS **/
+.box_bonsplans {
+  background: transparent radial-gradient(closest-side at 50% 50%, #FFE400 0%, #FFCC00 100%) 0% 0% no-repeat padding-box;
+  padding: 40px 0px;
+}
+.box_bonsplans h2 {
+  font-size:30px;
+  font-family: Nexa-black;
+  text-align: center;
+  text-transform: uppercase;
+  color:#000000;
+  margin-bottom:50px;
+}
+.box_bonsplans .blk .bonplan {
+  background-color:#fff;
+  border-radius:10px;
+  min-height:400px;
+  box-shadow: 0px 10px 14px #00000029;
+}
+.box_bonsplans .blk .bonplan .title {
+  color:#000;
+  text-transform: uppercase;
+  padding-left:25px;
+  padding-right:25px;
+  margin-top:10px;
+}
+.box_bonsplans .blk .bonplan .title h3 {
+  font-size:30px;
+  font-family:Nexa-black;
+}
+.box_bonsplans .blk .bonplan .argument {
+  font-size:24px;
+  padding-left:25px;
+  padding-right:25px;
+  text-transform: uppercase;
+}
+.box_bonsplans .blk .bonplan .img-gauche {
+  text-align: center;
+  margin-top:20px;
+}
+.box_bonsplans .blk .bonplan .img-droite {
+  text-align: left;
+  margin-top:20px;
+}
+.box_bonsplans .blk .bonplan .forfaitsim {
+  text-align: left;
+  margin-top:20px;
+}
+.box_bonsplans .blk .bonplan .forfaitsim p {
+  font-size:20px;
+}
+.box_bonsplans .blk .bonplan .forfaitsim .red {
+  color:#DE011E;
+}
+.box_bonsplans .blk .bonplan .cta {
+  text-align: center;
+  padding:50px 0px;
+}
+.box_bonsplans .blk .bonplan .cta a {
+  background-color:#333333;
+  color:#F2F2F2;
+  border-radius: 10px 0 10px 0;
+  padding:10px 20px;
+  font-size:16px;
+}
+.box_bonsplans .blk .bonplan .cta a:hover {
+  text-decoration: none;
+  background-color:#000000;
+  transition-duration: 1s;
+}
+
+
+/** SECTION BONS PLANS **/
+
+/** SECTION SERVICES **/
+.box_services {
+  background: transparent linear-gradient(180deg, #E0E0E0 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+  margin-bottom:60px;
+}
+.box_services .title {
+  color:#000;
+  text-transform: uppercase;
+  font-size:24px;
+  margin-bottom:60px;
+}
+.box_services h2 {
+  font-size:30px;
+  font-family: Nexa-black;
+  margin-top:40px;
+}
+.box_services .content .row {
+  background-color: #fff;
+  border-radius:10px;
+  margin-bottom:20px;
+  box-shadow: 0px 10px 14px #00000029;
+}
+.box_services .content h3 {
+  font-size:24px;
+  font-family: Nexa-heavy;
+  min-height:50px;
+  color:#000;
+  padding:0px 5px;
+}
+.box_services .content p {
+  font-size:14px;
+  color:#707070;
+  padding:0px 20px;
+}
+.box_services .content .price {
+  padding:0;
+  padding-top:20px;
+  border-top:1px solid #d2d2d2;
+  margin-top:20px;
+}
+.box_services .content .price .promoprice {
+  background:linear-gradient(0.25turn,#871C80, #E1001B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:22px;
+  font-family:Nexa-heavy;
+  font-weight:200;
+}
+.box_services .content .price .promoprice .taxes{
+  font-size:16px;
+}
+.box_services .content .price .afterprice {
+  color:grey;
+  font-size:10px;
+} 
+
+/** SECTION SERVICES **/
+
+/** SECTION INFOS PRATIQUES **/
+/* .box_infos-pratiques {
+  background: transparent radial-gradient(closest-side at 50% 50%, #E5005B 0%, #5B0A27 100%) 0% 0% no-repeat padding-box;
+  padding:10px 0px;
+} */
+.box_infos-pratiques h2 {
+  font-size:30px;
+  color:#000000;
+  text-transform: uppercase;
+  font-family:Nexa-black;
+  padding:50px 0px;
+  margin:0;
+
+}
+.box_infos-pratiques .blk .info {
+  background-color: #ffffff;
+  border-radius: 10px;
+  min-height:450px;
+  padding:15px 30px;
+  margin-bottom:50px;
+}
+.box_infos-pratiques .blk .info p {
+  font-size:20px;
+}
+.box_infos-pratiques .blk .info p.notice {
+  font-size:12px;
+}
+.box_infos-pratiques .blk .info h3 {
+  font-size:30px;
+  color: #000;
+  font-family:Nexa-black;
+  text-transform: uppercase;
+}
+.box_infos-pratiques .blk .info ul {
+  padding:0px 30px;
+}
+.box_infos-pratiques .blk .info li {
+  font-size:20px;
+  color: #000;
+  padding:15px 0px;
+  list-style-image: url(https://medias.lapostemobile.fr/portail_fibre/img/hp-box/picto-confirmation.png);
+}
+
+/** SECTION INFOS PRATIQUES **/
+
+/** BOX CONTENT**/
+.box_content {
+  background-color: #ffffff;
+  padding:40px 0px;
+}
+.box_content h2 {
+  font-size:14px;
+  font-family:Nexa-heavy;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.box_content p {
+  color:#333333;
+  font-size:14px;
+}
+/** BOX CONTENT**/
+
+/** REASSURANCE **/
+.box_reassurance {
+  background-color: #ffffff;
+  padding:40px 0px;
+  border-top:1px solid #B8B8B8;
+  border-bottom:1px solid #B8B8B8;
+}
+.box_reassurance .blk {
+  font-size:18px;
+  font-family: Nexa-black;
+  text-align: center;
+}
+.box_reassurance .blk .picto {
+  height:40px;
+  width:40px;
+}
+
+/** REASSURANCE **/
+
+
+/** SECTION NOTICE **/
+.box_notice {
+  background-color: #ffffff;
+  padding:20px 0px;
+}
+.box_notice .label {
+  font-size:16px;
+  color:#000;
+
+  padding:20px 0px;
+  margin-bottom:20px;
+}
+.box_notice p {
+  color:#333333;
+  text-align: justify;
+  font-size:14px
+}
+/** SECTION NOTICE **/

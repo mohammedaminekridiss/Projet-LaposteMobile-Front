@@ -1,0 +1,29 @@
+			// sv.ciblelink.com
+VeoTarg.Writer("https://sv.ciblelink.com/profiling/perform.php?name=&action=Category");
+(function() {
+ var localStorageSupported = function() {
+  try {
+   if (typeof(localStorage) == "undefined") {
+    return false;
+   }
+   localStorage.setItem("test", "test");
+   localStorage.removeItem("test");
+   return true;
+  } catch(e){
+   return false;
+  }
+ }
+ if (localStorageSupported()) {
+  localStorage.removeItem("vuidck");
+  localStorage.setItem("vuidck", "4a1a1967-3887-4c7d-8622-f42277bf5768");
+ }
+
+var j = new Date(); j.setTime(j.getTime() + (7776000 * 1000));var expires = "; expires=" + j.toGMTString();document.cookie = "vuidck=4a1a1967-3887-4c7d-8622-f42277bf5768" + expires + "; path=/";
+})();
+
+// sv.ciblelink.com
+VeoTarg.Writer("https://sv.ciblelink.com/profiling/perform.php?name=La Poste Mobile&action=CATEGORY&category=undefined&r=1692695043564777305");
+
+// SirData
+VeoTarg.Writer("https://js.cookieless-data.com/LAL.d?pa=35425&target=1&cat_id=undefined&cat_name=undefined&u=https%3A%2F%2Fwww.lapostemobile.fr%2F&r=https%3A%2F%2Fwww.lapostemobile.fr%2F&is_client=0&rand=1692695043456744301");
+

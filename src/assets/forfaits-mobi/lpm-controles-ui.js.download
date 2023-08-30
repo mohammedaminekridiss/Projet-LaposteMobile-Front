@@ -1,0 +1,245 @@
+﻿
+function scrolltoerror(clientId) {
+    var cible = $("#" + clientId);
+
+    /* Focus sur l'erreur placée le plus haut sur la page */
+    if (firstfocused === false) {
+        var hauteur = cible.offset().top - 100;
+        $('html, main').animate({ scrollTop: hauteur }, 300);
+        cible.focus();
+    }
+    firstfocused = true;
+}
+
+function setErrorClass(clientId) {
+    var cible = $("#" + clientId);
+    cible.addClass('form-control-error');
+}
+function setCkErrorClass(clientId) {
+    var cible = $("#" + clientId);
+    cible.addClass('form-control-error');
+    cible.next('.uh').addClass('form-control-error');
+}
+function setRbErrorClass(clientId) {
+    var cible = $("#" + clientId);
+    cible.addClass('form-control-error');
+    cible.find('.uh.round').addClass('form-control-error');
+}
+
+function trimAndSetInvalidable(obj) {
+    obj.value = obj.value.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    setInvalidable(obj);
+}
+
+function setInvalidable(obj) {
+    if (!$(obj).hasClass("invalidable"))
+        $(obj).addClass("invalidable");
+}
+
+function setAttributeValue(element, value) {
+    element.setAttribute('value', value);
+    if (value!='') {
+        $('#' + element.id).removeClass('form-control-error');
+        var diverreur = $('#' + element.id).parent().next();
+        diverreur.hide(300);
+    }
+}
+
+function setAttributePasteValue(element) {
+    setTimeout(function () {
+        element.setAttribute('value', element.value);
+        if (element.value != '') {
+            $('#' + element.id).removeClass('form-control-error');
+            var diverreur = $('#' + element.id).parent().next();
+            diverreur.hide(300);
+        }
+    }, 0);
+}
+
+function onSelectedValue(element) {
+    $('#' + element.id).removeClass('form-control-error');
+
+    var diverreur = $('#' + element.id).next().next('.form-error');
+    var diverreurid = diverreur.attr('id');
+
+    /* ATTENTION: il faut conserver la structure html en place dans le contrôle UIFormRadioButtonField: <div class="div-radio-button" suivie d'une <div id="validator" class="form-error"> */
+    if (diverreurid != null && diverreurid != undefined) {
+        diverreur.hide(300);
+    }
+}
+
+function onCheckboxSelectedValue(element) {
+
+    var diverreur = $('#' + element.id).closest('.ug').next('.form-error');
+    var diverreurid = diverreur.attr('id');
+
+    $('#' + element.id).next('.uh').removeClass('form-control-error');
+
+    /* ATTENTION: il faut conserver la structure html en place dans le contrôle UIFormCheckBoxField: <label class="ug"> suivie d'une <div id="validator" class="form-error"> */
+    if (diverreurid != null && diverreurid != undefined) {
+        diverreur.hide(300);
+    }
+}
+
+
+/* RADIO BUTTON avec option autopostback */ 
+function postbackRadioChecked(element) {
+    setTimeout('__doPostBack(\'' + element.id + '\',\'\')', 0)
+}
+
+function cocherRadio(id, idHdnChecked, groupName) {
+    $('#' + id).prop('checked', true);
+    $('input[value="' + groupName + '"]').val('');
+    $('#' + idHdnChecked).val(groupName);
+}
+
+function choisirValeur(id, idHdnInput, idValeur) {
+    if ($('#' + idHdnInput)) {
+        $('#' + idHdnInput).val(idValeur);
+        $('#' + id + '_opt_' + idValeur).prop('checked', true);
+    }
+}
+
+function choisirValeurParId(idComplet, idHdnInput, idHdnChecked, idValeur, estModeSelectedValue, groupName) {
+    if (estModeSelectedValue == "True") {
+        choisirValeur(idComplet, idHdnInput, idValeur)
+    }
+    else {
+        $('#' + idComplet).prop('checked', true);
+        $('input[value="' + groupName + '"]').val('');
+        $('#' + idHdnChecked).val(groupName);
+    }
+}
+
+function onRadioSelectedValue(element) {
+
+    var diverreur = $('#' + element.id).closest('.div-radio-button').next('.form-error');
+    var diverreurid = diverreur.attr('id');
+
+    $('#' + element.id).closest('.div-radio-button').find('.uh.round').removeClass('form-control-error');
+
+    /* ATTENTION: il faut conserver la structure html en place dans le contrôle UiFormListFieldPlaceHolder: DropDownList suivie directement ou non d'une <div id="validator" class="form-error"> */
+    if (diverreurid != null && diverreurid != undefined) {
+        diverreur.hide(300);
+    }
+}
+
+function validationHtml5(elem) {
+    var form = $("form")[0];
+
+    if (!form.checkValidity()) {
+        if (form.reportValidity) {
+            form.reportValidity();
+        }
+
+        $('.disableClick').each(
+            function () {
+
+                var button = $(this);
+
+                if ($(elem).attr('id') === button.attr('id')) {
+                    button.addClass('btn-dark');
+                    button.removeAttr('disabled');
+                    button.html(button.data('normal-text'));
+                    button.removeClass('btn-bgGray');
+                }
+            });
+
+        return false;
+    }
+    else {
+        $('.disableClick').each(
+            function () {
+
+                var button = $(this);
+
+                if ($(elem).attr('id') === button.attr('id') &&
+                    button.attr('disabled') != 'disabled') {
+
+                    if (!button.data('normal-text')) {
+                        button.data('normal-text', button.html());
+                    }
+                    var height = button.height();
+                    var loader = '<div class="half-circle"></div>';
+                    button.html(loader);
+                    button.height(height);
+
+                    button.attr('disabled', 'disabled');
+                    button.removeClass('btn-dark');
+                    button.addClass('btn-bgGray');
+                }
+            });
+    }
+    return true;
+}
+
+
+
+$(document).ready(function () {
+
+    $('.input-right').click(function () {
+        $(this).prev().focus();
+    });
+
+    addTooltipEvents();
+
+    if (prm) // prm (Sys.WebForms.PageRequestManager.getInstance) est initialisé dans TunnelCommande.Master
+    {
+        prm.add_endRequest(addTooltipEvents);
+    }
+    else {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_endRequest(addTooltipEvents);
+    }
+
+});
+
+function addTooltipEvents() {
+
+
+    $('.form-label').on('touchstart', function (event) {
+        $(this).closest('.input-group').find('input').focus();
+    });
+
+    $('.form-control').on('focus', function (event) {
+
+        var otherinputs = $('input');
+        var currentinput = this;
+
+        otherinputs.each(function () {
+            if ($(this).attr('id') !== $(currentinput).attr('id') && !($(this).attr('bottom-tooltip') || $(this).attr('bottom-tooltip') === "always")) {
+                /* remonte les infobulles des inputs qui n'ont pas ou plus le focus */
+                var divtooltip = $(this).closest('.input-root').find('.form-control-tooltip');
+                divtooltip.slideUp(200);
+            }
+        });
+
+        /* affiche l'infobulle de l'input qui a le focus */
+        var divtooltip = $(this).closest('.input-root').find('.form-control-tooltip');
+        if (!divtooltip.is(':visible')) {
+            divtooltip.slideDown(200);
+        }
+    });
+
+    /* pour gérer le masquage des infobulles suite à un click sur une zone non focusable (ex radiobutton ou chk) */
+    $('input').on('click', function (event) {
+        var input = $(this).closest('.input-group').find('input');
+        var otherinputs = $('input');
+
+        otherinputs.each(function () {
+            if ($(this).attr('id') !== $(input).attr('id') && !($(this).attr('bottom-tooltip') || $(this).attr('bottom-tooltip') === "always")) {
+                var divtooltip = $(this).closest('.input-root').find('.form-control-tooltip');
+                divtooltip.slideUp(200);
+            }
+        });
+    });
+
+    $('.form-control').each(function () {
+        if ($(this).attr('bottom-tooltip') && $(this).attr('bottom-tooltip') === "always") {
+            var divtooltip = $(this).closest('.input-root').find('.form-control-tooltip');
+            divtooltip.slideDown(200);
+        }
+    });
+}
+
+

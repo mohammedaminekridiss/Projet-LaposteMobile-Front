@@ -1,0 +1,315 @@
+ 
+.panier .imageButtonItemMenuHv2{background:url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket.svg) no-repeat center center}
+.panier_noir .imageButtonItemMenuHv2{background:url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket-notif.svg) no-repeat center center}
+
+.navMobileHv2 .menuMobileHv2 .buttonPanier {
+    height: 100%;
+    width: 65px;
+    display: block;
+    background: url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket.svg) no-repeat center center;
+}  
+.navMobileHv2 .menuMobileHv2 .panier_noir{ 
+    background: url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket-notif.svg) no-repeat center center;
+}
+.header-margin {
+    margin-bottom: 80px;
+}
+ 
+  h1 {
+		font-size: 36px;
+		font-family: Nexa-heavy;
+		color: #323232;
+		text-align: center;
+		margin-top: 60px;
+		margin-bottom: 60px
+	}
+  h2 {
+    font-family: "Nexa-heavy", sans-serif;
+    text-transform: initial;
+    font-size: 29px;
+    text-align: left;
+    color: #323232;
+    margin-top: 60px;
+  }
+	h3 {
+		color: #323232;
+    font-family: "Nexa-heavy";
+		text-align: center;
+		font-size: 22px
+	}
+  .trait-titre {
+    width: 78px;
+    margin-left: 0;
+    height: 10px;
+    border-radius: 5px;
+    background: #ffcb05;
+  }
+
+	.forfaits_mobiles .forfaits_sim {
+		background-color: #fff;
+		box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+		-webkit-box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+		-moz-box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+    transition: 0.2s ease-in-out;
+     transition-timing-function: ease-in;
+	 border-radius: 10px;
+	}
+	.forfaits_mobiles .forfaits_fam {
+		background-color: #fff;
+		box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+		-webkit-box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+		-moz-box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+    transition: 0.2s ease-in-out;
+     transition-timing-function: ease-in;
+	 border-radius: 10px;
+	}
+	.forfaits_mobiles .cartes-prepayees {
+		background-color: #fff;
+		box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+		-webkit-box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+		-moz-box-shadow: 0px 4px 16px rgb(0 0 0 / 10%);
+    transition: 0.2s ease-in-out;
+     transition-timing-function: ease-in;
+	 border-radius: 10px;
+	}
+
+  .forfaits_mobiles .forfaits_sim:hover {
+    box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    -webkit-box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    -moz-box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    transition: 0.2s ease-in-out;
+     transition-timing-function: ease-in;
+    margin-top: -10px;
+  }
+  .forfaits_mobiles .forfaits_fam:hover {
+    box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    -webkit-box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    -moz-box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    transition: 0.2s ease-in-out;
+     transition-timing-function: ease-in;
+     margin-top: -10px;
+  }
+  .forfaits_mobiles .cartes-prepayees:hover {
+    box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    -webkit-box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    -moz-box-shadow: 0px 4px 16px rgba(0,0,0,20%);
+    transition: 0.2s ease-in-out;
+     transition-timing-function: ease-in;
+     margin-top: -10px;
+  }
+
+	.forfaits_mobiles .txt-center {
+		text-align: center;
+		margin-bottom: 40px
+	}
+
+  .cta {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: "Nexa", sans-serif;
+    font-size: 16px;
+    padding: 12px 40px;
+    background: #0066B1;
+    color: #fff;
+    display: block;
+    width: fit-content;
+    margin-top: 40px;
+    transition: 0.2s;
+  }
+  .cta:hover {
+    background: #00477b;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .cta.focus, .cta:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  a:visited {
+    text-decoration: none;
+  }
+
+  .forfaits_mobiles .cta {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: "Nexa", sans-serif;
+    font-size: 16px;
+    background: #0066B1;
+    color: #fff;
+    display: block;
+    margin: auto;
+    width: 80%;
+  }
+  .forfaits_mobiles a:hover {
+    background: #00477b;
+    text-decoration: none;
+  }
+
+	.forfaits_mobiles ul {
+		margin-left: 20px;
+		padding: 10px 20px;
+		min-height: 165px
+	}
+
+	.forfaits_mobiles li {
+		font-size: 14px;
+		padding: 10px 0;
+		list-style-type: none;
+		color: #000;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: baseline;
+    line-height: 20px;
+	}
+
+  .forfaits_mobiles {
+    margin-bottom: 100px;
+  }
+	.tick {
+		height: 10px;
+		padding-right: 5px;
+	}
+	
+	.picto-svg {
+    margin-top: 35px;
+	}
+  .services_music .picto-svg {
+    margin-top: 100px;
+  }
+
+  @media screen and (min-width: 770px) and (max-width:1024px) {
+    .box-hover {
+      margin-bottom: 30px;
+    }
+    .forfaits_mobiles .cta {
+      padding: 10px 40px;
+    }
+  }
+  @media screen and (min-width:500px) and (max-width:769px) {
+    .forfaits_mobiles li {
+      text-align: center;
+      justify-content: center;
+    }
+    .box-hover {
+      margin-bottom: 30px;
+    }
+    .forfaits_mobiles h2 {
+      margin-bottom: 25px;
+    }
+  }
+  @media screen and (max-width:500px) {
+    .box-hover {
+      margin-bottom: 30px;
+    }
+    .forfaits_mobiles .cta {
+      padding: 10px 60px;
+    }
+  }
+
+	.title2 {
+		margin-top: 60px;
+		margin-bottom: 60px;
+		font-size: 36px;
+		font-family: Nexa-bold;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.services_music {
+		background-color: #fff;
+    margin-bottom: 30px;
+	}
+
+	
+
+	.services_music p {
+		font-size: 16px;
+		line-height: 1.4;
+		margin-bottom: 25px
+	}
+
+	.services_music .illustration {
+		text-align: center
+	}
+
+	.gamme_mobile {
+		background-color: #f3f3f3;
+	}
+  .gamme_mobile .container .row {
+    margin-bottom: 30px;
+  }
+
+	.gamme_mobile p {
+		font-size: 16px;
+		line-height: 1.4;
+		margin-bottom: 25px;
+		text-align: justify
+	}
+
+	.gamme_mobile .illustration img {
+		height: 310px;
+		text-align: center;
+    margin-top: 45px;
+	}
+
+	.breadcrumb {
+		background-color: #323232
+	}
+
+	.breadcrumb ol {
+		margin: 0;
+		padding: 20px 20px
+	}
+
+	.breadcrumb li {
+		display: inline-block;
+		font-size: 16px
+	}
+
+	.breadcrumb li:after {
+		content: ">";
+		color: #ffcb05
+	}
+
+	.breadcrumb li:last-child:after {
+		content: none
+	}
+
+	.breadcrumb li:last-child {
+		pointer-events: none
+	}
+
+	.breadcrumb li a {
+		color: #fff
+	}
+  @media screen and (min-width:992px) {
+    .gamme_mobile,
+    .services_music {
+      height: 430px
+    }
+  }
+  @media screen and (max-width:765px){
+    .gamme_mobile .illustration img {
+      height: 200px;
+      text-align: center;
+      margin-top: 45px;
+    }
+    .services_music .illustration img {
+      height: 150px;
+      text-align: center;
+      margin-top: 45px;
+    }
+  }
+  
+  .svg-white {
+    fill: #fff;
+  }
+ 

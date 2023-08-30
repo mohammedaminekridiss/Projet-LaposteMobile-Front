@@ -1,0 +1,292 @@
+ .slick-carousel {
+    min-height: unset !important;
+}
+
+.slick-slide img {
+    margin: auto;
+}
+
+.slick-slide {
+    background-color: #ffffff;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 210px !important;
+}
+
+.slick-list {
+    padding-left: 0 !important;
+}
+
+.slick-dots li button:before {
+    font-size: 15px !important;
+}
+
+body {
+    background: #F2F7FB !important;
+}
+
+.titre-panier {
+    font-family: "Nexa-heavy";
+    font-size: 32px;
+    padding: 20px 0;
+}
+
+.container-fluid {
+    background-color: unset !important;
+}
+
+
+
+.btn-radius-supprimer-list {
+    background: url(https://medias.lapostemobile.fr//portail_mobile/img/souscription/corbeille.svg) no-repeat center center;
+}
+
+.titre_accessoires {
+    min-height: 24px;
+    background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/accessoires.png) no-repeat left top;
+    padding-left: 30px !important;
+    font-weight: bold;
+    border-bottom: 1px solid #706F6F;
+    padding-bottom: 5px;
+}
+
+
+@media (max-width: 359px) {
+    .titre_assurance {
+        min-height: 24px;
+        background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/assurance.png) no-repeat 15px center;
+        padding-left: 45px !important;
+        padding-right: 0px !important;
+        font-weight: bold;
+    }
+
+    .titre_pnm {
+        min-height: 24px;
+        background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/pnm.png) no-repeat 15px center;
+        padding-left: 45px !important;
+        padding-right: 0px !important;
+        font-weight: bold;
+    }
+
+    .titre_annuaire {
+        min-height: 24px;
+        background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/annuaire.svg) no-repeat 18px center;
+        padding-left: 45px !important;
+        padding-right: 0px !important;
+        font-weight: bold;
+    }
+    .col-xxs-titre-left {
+        flex: 0 0 52% !important;
+        max-width: 52% !important;
+    }
+    .col-xxs-titre-right {
+        flex: 0 0 48% !important;
+        max-width: 48% !important;
+    }
+}       
+
+@media (min-width: 360px) {
+    .titre_assurance {
+        min-height: 24px;
+        background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/assurance.png) no-repeat 15px center;
+        padding-left: 45px !important;
+        font-weight: bold;
+    }
+
+    .titre_pnm {
+        min-height: 24px;
+        background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/pnm.png) no-repeat 15px center;
+        padding-left: 45px !important;
+        font-weight: bold;
+    }
+
+    .titre_annuaire {
+        min-height: 24px;
+        background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/annuaire.svg) no-repeat 18px center;
+        padding-left: 45px !important;
+        font-weight: bold;
+    }
+}
+
+.titre_autres_options {
+    min-height: 24px;
+    background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/autres_options.png) no-repeat left top;
+    padding-left: 30px !important;
+    font-weight: bold;
+    border-bottom: 1px solid #706F6F;
+    padding-bottom: 5px;
+}
+
+.titre_code_promo {
+    min-height: 24px;
+    background: url(https://medias.lapostemobile.fr//portail_mobile/img/panier/code_promo.png) no-repeat left center;
+    padding-left: 30px !important;
+    font-weight: bold;
+}
+
+.page_panier {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.panier_vide {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 80px;
+}
+
+.page_panier .slick-custom-prev, .page_panier .slick-custom-next {
+    background-color: #ffffff;
+    opacity: .9;
+    height: 94px;
+    width: 36px;
+    top: 45%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.page_panier .slick-custom-prev {
+    left: -17px;
+}
+
+.page_panier .slick-custom-next {
+    right: -17px;
+}
+
+main {
+    background-color: #F2F7FB;
+}
+
+.besoinAide {
+    position: fixed;
+    right: 0;
+    top: 70%;
+    width: 22px;
+    z-index: 9999;
+    overflow: hidden;
+    transition: width .35s ease;
+}
+
+.td {
+    display: table-cell;
+}
+
+.half-circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 2px solid transparent;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    -webkit-animation: rotate 2s infinite linear;
+    -moz-animation: rotate 2s infinite linear;
+    animation: rotate 2s infinite linear;
+}
+
+
+
+.btn-group > .btn {
+    border-radius: 10px !important;
+}
+
+    .btn-group > .btn:hover {
+        border-radius: 10px !important;
+    }
+
+.btn-group > .btn-bgGray {
+    background-color: lightgray !important;
+    border-color: lightgray !important;
+    border-radius: 10px !important;
+}
+
+    .btn-group > .btn-bgGray:hover {
+        background-color: lightsteelblue !important;
+        border-color: lightsteelblue !important;
+        border-radius: 10px !important;
+    }
+
+.btn-bgGray {
+    background-color: lightgray !important;
+    border-color: lightgray !important;
+    border-radius: 5px !important;
+}
+
+    .btn-bgGray:hover {
+        background-color: lightsteelblue !important;
+        border-color: lightsteelblue !important;
+        border-radius: 5px !important;
+    }
+
+@-moz-keyframes rotate {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+ @media (min-width: 992px) {
+    .navbar {
+        -webkit-transition: padding 0.2s ease;
+        -moz-transition: padding 0.2s ease;
+        -o-transition: padding 0.2s ease;
+        transition: padding 0.2s ease;
+    }
+
+    .affix {
+        /*padding-top: 0.2em !important;*/
+        padding-bottom: 0.2em !important;
+        -webkit-transition: padding 0.2s linear;
+        -moz-transition: padding 0.2s linear;
+        -o-transition: padding 0.2s linear;
+        transition: padding 0.2s linear;
+    }
+
+        .affix .navbar-collapse {
+            height: 30px;
+            padding-top: 4px;
+        }
+
+        .affix .navbar-brand {
+            width: 42px;
+        }
+
+        .affix .r_nav {
+            height: 50px;
+            padding-top: 55px;
+            overflow: hidden;
+            background-size: 22px;
+        }
+
+        .affix .navbar-nav .active .nav-link {
+            border-bottom: 0;
+        }
+
+        .affix .panier {
+            background-position-y: 16px;
+        }
+
+    .navbar-expand-lg .navbar-collapse {
+        margin-left: 68px;
+    }
+}
+ 
+ 

@@ -1,0 +1,353 @@
+ 
+
+          <main>
+            <div class="headerSubMenuHv2">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-lg-4 col-lg-1 col-3 pad10tb text-center "
+                            style="border-right: solid 1px #d3d3d3;">
+                            <a href="https://www.lapostemobile.fr/telephones-mobiles/samsung/10059" class="planMarquage"
+                                pmcategory="Téléphones" pmaction="clic::sous catégorie"
+                                pmlabel="clic::Samsung">Samsung</a>
+                        </div>
+                        <div class="col-lg-1 col-3 text-center pad10tb  " style="border-right: solid 1px #d3d3d3;">
+                            <a href="https://www.lapostemobile.fr/telephones-mobiles/apple/10004" class="planMarquage"
+                                pmcategory="Téléphones" pmaction="clic::sous catégorie" pmlabel="clic::apple">IPhone</a>
+                        </div>
+
+                        <div class="col-lg-1 col-3 text-center pad10tb " style="border-right: solid 1px #d3d3d3;">
+                            <a href="https://www.lapostemobile.fr/telephones-mobiles/oppo/10127" class="planMarquage"
+                                pmcategory="Téléphones" pmaction="clic::sous catégorie" pmlabel="clic::oppo">Oppo</a>
+                        </div>
+                        <div class="col-lg-1 col-3 text-center pad10tb  ">
+                            <a href="https://www.lapostemobile.fr/telephones-mobiles/5g/30019" class="planMarquage"
+                                pmcategory="Téléphones" pmaction="clic::sous catégorie" pmlabel="clic::5g">5G</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container pad20b">
+
+
+                <div class="row">
+                    <div class="col-12 f12 mt-3">
+                        <a href="https://www.lapostemobile.fr/">Accueil</a> &gt; <span class="bold">Téléphones</span>
+                    </div>
+                </div>
+                <h1 class="text-center titre-page">Tous nos téléphones</h1>
+
+                <div class="row row-banniere center-block">
+                    <div id="divBanniereMiseEnAvantXS" class="d-block d-md-none text-center">
+
+                        <img style="margin-bottom:20px;" src="./assets/telephones/offre-jeunes-fam-mobile.png"
+                            alt="lz Samsung Galaxy A14 4G à 1€ seulement avec le Forfait + Mobile à 16,99€/mois pendant 12 mois"
+                            class="img-responsive img-banniere-xxs">
+
+                    </div>
+                    <div id="divBanniereMiseEnAvant"
+                        class="d-none d-md-block text-center center-block border-banniere-desktop">
+                        <img src="./assets/telephones/offre-jeunes-fam.png"
+                            alt="lz Samsung Galaxy A14 4G à 1€ seulement avec le Forfait + Mobile à 16,99€/mois pendant 12 mois"
+                            class="img-responsive img-banniere-desktop">
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <ng-container *ngFor="let article of articles; let i = index">
+                      <div class="col-md-6 col-lg-4 estTelephone">
+                        <a [routerLink]="['/caracteristiquesarticle', article.idArticle]">
+                            <div class="offreTel pmViewItemList">
+                            <!-- Affichage des détails de l'article -->
+                            <h2 class="col-12 h50 marg10t libelleTelephone">{{ article.libelleArticle }}</h2>
+                  
+                            <div class="col-lg-5 offset-lg-3 col-12 d-flex justify-content-center mt-2">
+                              <img id="ImgTelephone" class="maxh180" [src]="article.fichierImage" alt="{{ article.libelleArticle }}" loading="lazy">
+                            </div>
+                            <!-- Affichage des caractéristiques -->
+                            <div class="col-lg-12 text-center mt-2">
+                              <div *ngFor="let carac of article.caracteristiquesArticles" class="caracteristique libelleTelephone">
+                                <div class="carac-nom">{{ carac.nomCaracteristiquesArticles }}</div>
+                                <div class="carac-type">{{ carac.typeCaracteristiquesArticles }}</div>
+                                <div class="carac-valeur">
+                                  <div class="f14 h20">À partir de</div>
+                                  <span class="f28" style="font-family: 'Nexa-heavy';">{{ carac.valeurCarasteristiquesArticles }}<sup>€00</sup></span>
+                                  <span class="Nexa font-bold f28"></span>
+                                  <div class="f13 pad10t" style="line-height: 18px;"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- Insérer une nouvelle ligne après chaque groupe de trois articles -->
+                      <div class="clearfix visible-md visible-lg" *ngIf="(i + 1) % 3 === 0"></div>
+                    </ng-container>
+                  </div>
+                  
+                  
+                  
+                  
+
+
+
+
+
+
+
+
+
+                <link rel="stylesheet" type="text/css" href="/assets/telephones/includes.css">
+                <link rel="stylesheet" type="text/css" href="/assets/telephones/includes_detail_offre.css">
+
+
+
+                <div class="row container_bloc_seo_page text-center" style="width:initial;">
+
+                    <div class="col-12">
+                        <h2> Nos Engagements</h2>
+                    </div>
+                    <div class="col-12 col-sm-6">
+
+                        <div class="bloc_contenu_seo row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="img-include-seo"><img class="lazyload"
+                                        src="./assets/telephones/picto_lapostemobile_mobile_large_choix.png"
+                                        alt="Un vaste choix de smartphones chez La Poste Mobile !">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="">
+                                    <h3 class="bleu_include">Un vaste choix de smartphones chez La Poste Mobile !</h3>
+                                    <article>
+                                        <span class="bold">Samsung, Apple, Huawei, Wiko, Doro, Sony, Nokia</span> et
+                                        bien
+                                        d'autres... Les clients La Poste Mobile sont libres de faire leur choix entre
+                                        une
+                                        large variété de modèles de smartphones et de constructeurs ! Que les téléphones
+                                        <span class="bold">Android</span> n'aient plus de secret pour vous ou que vous
+                                        soyez
+                                        habitué à l'ergonomie d'un iPhone sous <span class="bold">iOS</span>, vous
+                                        profiterez d'un catalogue très fourni de modèles, à trier en fonction de vos
+                                        envies
+                                        bien sûr, mais aussi de votre budget et de vos besoins : du téléphone basique et
+                                        pas
+                                        cher à touches digitales jusqu'aux modèles dernier cri de la gamme Galaxy ou
+                                        Xperia,
+                                        La Poste Mobile a forcément l'appareil qu'il vous faut.<br><br>
+
+                                        <span class="bold">Côté forfait, vous êtes entièrement libre</span> ! Allez-vous
+                                        opter pour une formule <span class="bold">4G sans engagement</span> et sans
+                                        pénalité
+                                        de résiliation anticipée, ou plutôt pour un <span class="bold">engagement de
+                                            vingt-quatre mois</span> avec un superbe téléphone à prix bradé ? Choisissez
+                                        dès
+                                        maintenant le smartphone qui retient votre préférence et jetez un œil à tous les
+                                        services et options de nos forfaits.
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bloc_contenu_seo row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="img-include-seo"><img class="lazyload"
+                                        src="./assets/telephones/picto_lapostemobile_mobile_technologie_mobile.png"
+                                        alt="Le meilleur de la technologie mobile !">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="">
+                                    <h3 class="bleu_include">Le meilleur de la technologie mobile !</h3>
+                                    <article>
+                                        Vous trouverez les <span class="bold">dernières technologies mobiles vous
+                                            permettant
+                                            d’utiliser votre téléphone mobile à toute vitesse</span> : 4G LTE ultra
+                                        rapides,
+                                        équipés des derniers processeurs MTK, Qualcomm ou Intel associés à 1Go, 2Go ou
+                                        3Go
+                                        de mémoire vive (RAM). Votre téléphone portable mérite le meilleur de la photo :
+                                        retrouvez les derniers Apple iPhone, Sony Xperia ou Samsung Galaxy, équipés
+                                        d’appareils photos de 8 à 23 millions de pixels. Votre smartphone mérite le
+                                        meilleur
+                                        écran : IPS, Amoled ou Super Amoled ; HD ou full HD, les meilleures résolutions
+                                        sont
+                                        toutes chez La Poste Mobile ! </article>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+
+                        <div class="bloc_contenu_seo row">
+
+                            <div class="col-12 col-sm-4">
+                                <div class="img-include-seo"><img class="lazyload"
+                                        src="./assets/telephones/picto_lapostemobile_mobile_0euros.png"
+                                        alt="Votre nouveau mobile pas cher au meilleur prix !">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-8">
+                                <div class="">
+                                    <h3 class="bleu_include">Votre nouveau mobile à prix mini !</h3>
+                                    <article>
+                                        Nous vous proposons une large gamme de mobiles à <span class="bold">prix
+                                            attractifs</span>, et pour <span class="bold">tous les budgets</span> !
+                                        Notre
+                                        gamme de mobile comprend des mobiles à partir de 19,90 € avec un forfait sans
+                                        engagement, et à partir de 0€ (avec une offre de remboursement différée et sur
+                                        demande) avec un Forfait + Mobile avec engagement de 24 mois ! Et en plus,
+                                        bénéficiez du programme fidélité La Poste Mobile vous permettant d'acquérir sous
+                                        conditions un nouveau mobile à prix avantageux.</article>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bloc_contenu_seo row">
+
+                            <div class="col-12 col-sm-4">
+                                <div class="img-include-seo"><img class="lazyload"
+                                        src="./assets/telephones/picto_lapostemobile_mobile_assistance.png"
+                                        alt="Profitez de la qualité du réseau 4G de l’opérateur mobile SFR, performant en 4G comme en 3G !">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-8">
+                                <div class="">
+                                    <h3 class="bleu_include">Urgence, dépannage ? Notre service après vente est là pour
+                                        vous
+                                        assister !</h3>
+                                    <article>
+                                        En cas de panne de votre téléphone portable, vous bénéficiez du plus gros <span
+                                            class="bold">réseau de Point de Vente</span> (10 000 bureaux répartis dans
+                                        toute
+                                        la France) avec des <span class="bold">conseillers clientèles</span> qui
+                                        prendront
+                                        en charge votre mobile pour l’envoyer vers les centres de réparations agréés par
+                                        les
+                                        constructeurs.
+                                        Notre engagement c’est : <br>
+                                        - La <span class="bold">Garantie mobile</span> 24 mois (hors produits Apple)<br>
+                                        - Le <span class="bold">Prêt gratuit</span> d’un téléphone mobile de
+                                        remplacement
+                                        pour la durée du SAV<br>
+                                        - La <span class="bold">Réparation</span> en moins de 3 semaines (sinon échange
+                                        standard)<br>
+                                        - La durée moyenne d’un <span class="bold">SAV</span> est de 10 jours</article>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div style="background:#f3f3f3; ">
+
+                    <div class="container_footer row justify-content-around">
+
+                        <div class="avantagesItem col-12 col-sm-12 col-md-7 col-lg">
+                            <a href="https://www.lapostemobile.fr/portabilite-du-numero" target="_blank"
+                                class="link numero" title="Conservez votre numéro">
+                                <span>Conservez gratuitement votre numéro chez La Poste Mobile.</span><br><br>
+                                <span class="lien">&gt; En savoir plus</span>
+                            </a>
+                        </div>
+                        <div class="avantagesItem col-12 col-sm-12 col-md-7 col-lg">
+                            <a href="https://www.lapostemobile.fr/livraison" target="_blank" class="link livraison"
+                                title="Livraison en 5 jours">
+                                <span>Recevez votre téléphone et votre carte sim en 5 jours.</span><br><br>
+                                <span class="lien">&gt; En savoir plus</span>
+                            </a>
+                        </div>
+                        <div class="avantagesItem col-12 col-sm-12 col-md-7 col-lg">
+                            <a href="https://www.lapostemobile.fr/offres-mobiles/forfaits-sans-engagement"
+                                target="_blank" class="link sim" title="les forfaits mobile sans engagement">
+                                <span>Envie de vous faire plaisir à petit prix ? Découvrez nos forfaits sans engagement
+                                    à
+                                    partir de 4,99€ !</span><br><br>
+                                <span class="lien"> &gt; Découvrir les forfaits mobile sans engagement</span>
+                            </a>
+                        </div>
+                        <div class="avantagesItem col-12 col-sm-12 col-md-7 col-lg">
+                            <a href="https://www.lapostemobile.fr/promos/" target="_blank" class="link prix"
+                                title="Foire aux questions">
+                                <span>Profitez de nos bons plans Mobile et Box Internet au meilleur prix
+                                    !</span><br><br>
+                                <span class="lien"> &gt; Voir les promotions forfaits et mobiles</span>
+                            </a>
+                        </div>
+                        <div class="avantagesItem col-12 col-sm-12 col-md-7 col-lg ">
+                            <a href="https://www.lapostemobile.fr/securite" target="_blank" class="link securise"
+                                title="Paiement sécurisé">
+                                <span>Payez en toute sécurité en ligne avec votre carte bancaire.</span><br><br>
+                                <span class="lien">&gt; En savoir plus</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="brume-bleu">
+                    <a style="display:flex" role="button" data-toggle="collapse"
+                        href="https://www.lapostemobile.fr/telephones-mobiles#collapseML" aria-expanded="false"
+                        aria-controls="collapseML" class="lien-ml">
+                        <b>Mentions Légales</b>
+                        <div class="icon-black-caret"></div>
+                    </a>
+
+                    <br>
+                    <br>
+                    <div class="collapse " id="collapseML">
+                        <div class="f12 text-justify">
+                            <strong><img src="./assets/telephones/picto-kit-mains-libres.png" border="0"
+                                    alt="Kit mains libres"> Kit mains-libres
+                                recommandé.</strong><br><br><br><strong>*Offre
+                                de remboursement : </strong> <br>Montant remboursé par le constructeur ou La Poste
+                            Mobile
+                            selon le cas, après l'achat de votre téléphone. Démarche à faire sur le site
+                            odr.lapostemobile.fr avec les justificatifs demandés et dans le délai imparti. Tous les
+                            détails
+                            vous seront envoyés dans votre email de confirmation de commande. Offre non contractuelle.
+                            <br>
+                            <br><strong>Le DAS (débit d'absorption spécifique) des téléphones mobiles :
+                            </strong>quantifie
+                            le niveau d'exposition maximal de l'utilisateur aux ondes électromagnétiques, pour une
+                            utilisation à l'oreille. La réglementation française impose que le DAS ne dépasse pas 2 &gt;
+                            W/kg. <br> <br><strong>La copie privée : </strong>Le prix du mobile affiché comprend la
+                            rémunération pour la copie privée. <br>En savoir plus : <a
+                                href="https://www.culture.gouv.fr/Thematiques/Propriete-litteraire-et-artistique/Commission-pour-la-remuneration-de-la-copie-privee"
+                                target="_blank">Commission pour la rémunération de la copie privée</a> <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <app-footer></app-footer>
+
+
+
+        </main>
+ 
+ 
+ 

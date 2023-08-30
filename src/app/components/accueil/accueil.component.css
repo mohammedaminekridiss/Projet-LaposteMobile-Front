@@ -1,0 +1,16 @@
+
+.panier .imageButtonItemMenuHv2{background:url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket.svg) no-repeat center center}
+.panier_noir .imageButtonItemMenuHv2{background:url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket-notif.svg) no-repeat center center}
+
+.navMobileHv2 .menuMobileHv2 .buttonPanier {
+    height: 100%;
+    width: 65px;
+    display: block;
+    background: url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket.svg) no-repeat center center;
+}  
+.navMobileHv2 .menuMobileHv2 .panier_noir{ 
+    background: url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket-notif.svg) no-repeat center center;
+}
+.header-margin {
+    margin-bottom: 80px;
+}

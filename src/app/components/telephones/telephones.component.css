@@ -1,0 +1,207 @@
+main {
+    background-color: #F3F3F3;
+}
+main {
+    background-color: #F2F7FB;
+}
+
+.besoinAide {
+    position: fixed;
+    right: 0;
+    top: 70%;
+    width: 22px;
+    z-index: 9999;
+    overflow: hidden;
+    transition: width .35s ease;
+}
+
+.td {
+    display: table-cell;
+}
+
+.half-circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 2px solid transparent;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    -webkit-animation: rotate 2s infinite linear;
+    -moz-animation: rotate 2s infinite linear;
+    animation: rotate 2s infinite linear;
+}
+
+
+
+.btn-group > .btn {
+    border-radius: 10px !important;
+}
+
+    .btn-group > .btn:hover {
+        border-radius: 10px !important;
+    }
+
+.btn-group > .btn-bgGray {
+    background-color: lightgray !important;
+    border-color: lightgray !important;
+    border-radius: 10px !important;
+}
+
+    .btn-group > .btn-bgGray:hover {
+        background-color: lightsteelblue !important;
+        border-color: lightsteelblue !important;
+        border-radius: 10px !important;
+    }
+
+.btn-bgGray {
+    background-color: lightgray !important;
+    border-color: lightgray !important;
+    border-radius: 5px !important;
+}
+
+    .btn-bgGray:hover {
+        background-color: lightsteelblue !important;
+        border-color: lightsteelblue !important;
+        border-radius: 5px !important;
+    }
+
+@-moz-keyframes rotate {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+article.avantagesItem span.lien,
+article.avantagesItemLast span.lien {
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+
+.avantagesItem .link {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: transparent;
+    color: #b4b4b4;
+    padding-top: 50px;
+    display: inline-block;
+}
+
+.avantagesItem .link:hover {
+    color: #323232;
+    text-decoration: none;
+}
+
+.avantagesItem .numero {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-06.png);
+}
+
+.avantagesItem .prix {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-prix.png);
+}
+
+.avantagesItem .sim {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-sim.png);
+}
+
+.avantagesItem .telephone {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-tel.png);
+}
+
+.avantagesItem .livraison {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-livraison.png);
+}
+
+.avantagesItem .recyclage {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-recyclage.png);
+}
+
+.avantagesItem .suivi {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-suivi.png);
+}
+
+.avantagesItem .faq {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-faq.png);
+}
+
+.avantagesItem .securise,
+article.avantagesItemLast .securise {
+    background-image: url(https://medias.lapostemobile.fr/portail_mobile/img/avantages-securise.png);
+}
+.lien-ml {
+    color: black !important;
+    font-family: 'Nexa';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+ 
+@media (min-width: 992px) {
+    .navbar {
+        -webkit-transition: padding 0.2s ease;
+        -moz-transition: padding 0.2s ease;
+        -o-transition: padding 0.2s ease;
+        transition: padding 0.2s ease;
+    }
+
+    .affix {
+        /*padding-top: 0.2em !important;*/
+        padding-bottom: 0.2em !important;
+        -webkit-transition: padding 0.2s linear;
+        -moz-transition: padding 0.2s linear;
+        -o-transition: padding 0.2s linear;
+        transition: padding 0.2s linear;
+    }
+
+        .affix .navbar-collapse {
+            height: 30px;
+            padding-top: 4px;
+        }
+
+        .affix .navbar-brand {
+            width: 42px;
+        }
+
+        .affix .r_nav {
+            height: 50px;
+            padding-top: 55px;
+            overflow: hidden;
+            background-size: 22px;
+        }
+
+        .affix .navbar-nav .active .nav-link {
+            border-bottom: 0;
+        }
+
+        .affix .panier {
+            background-position-y: 16px;
+        }
+
+    .navbar-expand-lg .navbar-collapse {
+        margin-left: 68px;
+    }
+}
+ 
+  
