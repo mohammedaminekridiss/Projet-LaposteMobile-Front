@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OffreEngagement } from 'src/app/models/Offreengagement';
 import { OffreengagementService } from 'src/app/services/offreengagement.service';
+import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
   selector: 'app-forfaits-avec-telephone',
@@ -14,6 +15,8 @@ export class ForfaitsAvecTelephoneComponent {
    
   constructor(
     private offreengagementservice: OffreengagementService,
+    private panierService: PanierService,
+
    ) {}
 
   ngOnInit(): void {
@@ -33,4 +36,5 @@ export class ForfaitsAvecTelephoneComponent {
       }
     );
   }
+
 }

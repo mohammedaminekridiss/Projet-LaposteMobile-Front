@@ -78,30 +78,50 @@
                             <div id="panier_gauche" class="bloc pad30b marg30b">
                                 <div class="titre_selection">Ma sélection</div>
                                 <div class="row no-bg-xs titre_forfait_vide">
-                                    <div class="col-12 col-sm-6">
-			
-                                        <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Forfait</div>
-                                        <div class="mx-auto marg20b marg20t" style="width: 100px;">
-                                            <img class="img_vide" src="/assets/panier/picto-sim-grey.svg">
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="link_vide" href="https://www.lapostemobile.fr/offres-mobiles">Ajouter un forfait</a>
-                                        </div>
-                                    
-		</div>
+                                  <div class="col-12 col-sm-6">
+                                    <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Forfait</div>
+                                    <div *ngIf="offreSelectionnee | async as offre" class="mx-auto marg20b marg20t" style="width: 100px;">
+                                      <img class="img_vide" src="/assets/panier/picto-sim-grey.svg">
+                                      <div>{{ offre.libelleMarketing }}</div>
+                                      <div>{{ offre.prix }}</div>
+                                      <!-- ... Autres détails de l'offre ... -->
+                                  
+                                      <!-- Boutons Modifier et Supprimer -->
+                                      <div class="d-flex align-items-center justify-content-center">
+                                        <button class="btn btn-primary mr-2" (click)="modifierOffre(offre)">Modifier</button>
+                                        <button class="btn btn-danger" (click)="supprimerOffre(offre)">Supprimer</button>
+                                      </div>
+                                    </div>
+                                    <div *ngIf="!(offreSelectionnee | async)" class="text-center">
+                                      <a class="link_vide" href="/forfaits">Ajouter un forfait</a>
+                                    </div>
+                                  </div>
+                                  
                                     
                                     <div class="col-12 d-block d-lg-none p-2 text-center h50 titre_forfait_vide"></div>
                                     <div class="col-12 col-sm-6">
-			
-                                        <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Téléphone</div>
-                                        <div class="mx-auto marg20b marg20t" style="width: 100px;">
-                                            <img class="img_vide" src="/assets/panier/tel-vide.svg">
+                                      <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Téléphone</div>
+                                      
+                                      <!-- Affichage du contenu de l'article (téléphone) -->
+                                      <div *ngIf="articleSelectionne | async as article" class="mx-auto marg20b marg20t" style="width: 100px;">
+                                        <img class="img_vide" [src]="article.fichierImage" alt="{{ article.libelleArticle }}" loading="lazy">
+                                        <div>{{ article.libelleArticle }}</div>
+                                       
+                                        <!-- ... Autres détails de l'article ... -->
+                                        
+                                        <!-- Boutons Modifier et Supprimer -->
+                                        <div class="d-flex align-items-center justify-content-center">
+                                          <button class="btn btn-primary mr-2" (click)="modifierArticle(article)">Modifier</button>
+                                          <button class="btn btn-danger" (click)="supprimerArticle(article)">Supprimer</button>
                                         </div>
-                                        <div class="text-center">
-                                            <a class="link_vide" href="https://www.lapostemobile.fr/telephones-mobiles">Ajouter un téléphone</a>
-                                        </div>
+                                      </div>
+                                      
+                                      <!-- Affichage d'un lien si aucun article n'est sélectionné -->
+                                      <div *ngIf="!(articleSelectionne | async)" class="text-center">
+                                        <a class="link_vide" href="/telephone">Ajouter un téléphone</a>
+                                      </div>
+                                    </div>
                                     
-		</div>
                                     
                                 </div>
 

@@ -4,6 +4,7 @@ import { Article } from 'src/app/models/Article';
 import { CaracteristiquesArticles } from 'src/app/models/CaracteristiquesArticles';
 import { ArticlesService } from 'src/app/services/articles.service';
 import { CaracteristiquesarticlesService } from 'src/app/services/caracteristiquesarticles.service';
+import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
   selector: 'app-caracteristiquesarticles',
@@ -18,7 +19,8 @@ export class CaracteristiquesarticlesComponent {
   constructor(
     private route: ActivatedRoute,
     private articlesService: ArticlesService,
-    private caracteristiquesService: CaracteristiquesarticlesService
+    private caracteristiquesService: CaracteristiquesarticlesService,
+    private panierservice : PanierService,
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +52,9 @@ export class CaracteristiquesarticlesComponent {
       }
     );
   }
-  
+  ajouterAuPanier(article: Article) {
+    this.panierservice.ajouterArticle(article);
+  }
 }
 
 

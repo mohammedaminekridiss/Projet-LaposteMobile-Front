@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OffreEngagement } from 'src/app/models/Offreengagement';
 import { OffreengagementService } from 'src/app/services/offreengagement.service';
+import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
   selector: 'app-forfaits-sans-engagement',
@@ -15,6 +16,8 @@ export class ForfaitsSansEngagementComponent {
    
   constructor(
     private offreengagementservice: OffreengagementService,
+    private panierService: PanierService,
+
    ) {}
 
   ngOnInit(): void {
@@ -33,6 +36,9 @@ export class ForfaitsSansEngagementComponent {
         console.error('Error loading offres:', error);
       }
     );
+  }
+  ajouterAuPanier(offre: OffreEngagement) {
+    this.panierService.ajouterOffre(offre);
   }
   
   

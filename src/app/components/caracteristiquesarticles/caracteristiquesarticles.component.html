@@ -132,10 +132,8 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-8 pad0l marg10t">
-                                            <input type="submit" name="ctl00$mainContent$btn_avec_engagement"
-                                                value="Ajouter au panier" id="mainContent_btn_avec_engagement"
-                                                class="btn btn-dark btn-block btn-lg pmAddToCart"
-                                                pmaddtocart="divPmArticle" kameleoonlistener-ohoy="true">
+                                            <input type="button" *ngIf="article" (click)="ajouterAuPanier(article)" value="Ajouter au Panier" class="btn btn-primary">
+
                                         </div>
                                     </div>
 
