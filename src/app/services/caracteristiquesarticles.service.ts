@@ -20,8 +20,7 @@ export class CaracteristiquesarticlesService {
   
      getCaracteristiquesByArticleId(idArticle: number): Observable<CaracteristiquesArticles[]> {
       const url = `${this.apiUrl}/${idArticle}`;
-      console.log('Fetching characteristics for article with ID:', idArticle);
-       return this.http.get<CaracteristiquesArticles[]>(url);
+        return this.http.get<CaracteristiquesArticles[]>(url);
     }
     
     

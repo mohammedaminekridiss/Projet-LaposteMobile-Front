@@ -312,4 +312,6 @@
   .svg-white {
     fill: #fff;
   }
- 
+  main {
+    margin-top: 100px; /* Ajustez la valeur de la marge supérieure selon la hauteur de votre en-tête */
+ }

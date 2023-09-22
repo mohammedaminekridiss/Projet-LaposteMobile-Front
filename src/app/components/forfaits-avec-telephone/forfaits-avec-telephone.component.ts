@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OffreEngagement } from 'src/app/models/Offreengagement';
 import { OffreengagementService } from 'src/app/services/offreengagement.service';
@@ -16,7 +17,7 @@ export class ForfaitsAvecTelephoneComponent {
   constructor(
     private offreengagementservice: OffreengagementService,
     private panierService: PanierService,
-
+    private router: Router,
    ) {}
 
   ngOnInit(): void {
@@ -36,5 +37,10 @@ export class ForfaitsAvecTelephoneComponent {
       }
     );
   }
-
+  ajouterAuPanier(offre: OffreEngagement) {
+    this.panierService.ajouterAuPanier(offre);
+  }
+  naviguerVersPanier() {
+    this.router.navigate(['/panier']);
+}
 }

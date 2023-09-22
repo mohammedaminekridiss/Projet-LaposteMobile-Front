@@ -1,7 +1,6 @@
- main {
-    margin-top: 0; /* Réduire la marge supérieure à 0 */
-}
- 
+main {
+    margin-top: 82px; /* Ajustez la valeur de la marge supérieure selon la hauteur de votre en-tête */
+ }
  .carousel {
     margin: 20px 0;
 }
@@ -41,17 +40,7 @@
  main {
     background-color: #F2F7FB;
 }
-
-.besoinAide {
-    position: fixed;
-    right: 0;
-    top: 70%;
-    width: 22px;
-    z-index: 9999;
-    overflow: hidden;
-    transition: width .35s ease;
-}
-
+ 
 .td {
     display: table-cell;
 }

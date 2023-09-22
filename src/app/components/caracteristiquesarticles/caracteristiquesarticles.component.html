@@ -1,80 +1,48 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="/assets/carac/slick.css">
-    <link rel="stylesheet" type="text/css" href="/assets/carac/slick-theme.css">
-    <link media="screen" rel="stylesheet" type="text/css" href="/assets/carac/font-awesome.min.css">
-    <link href="/assets/carac/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/carac/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
-    <link href="/assets/carac/site.min.css" rel="stylesheet">
-    <link href="/assets/carac/lpm-controles-ui.css" rel="stylesheet">
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
-
-<body>
-    <app-header></app-header>
-
-
-    <main class="content-container">
-
+    
+    <main >
         <div class="container fiche_mobile">
             <div class="row">
                 <div class="col-12 f12 mt-3">
                     <a href="/accueil">Accueil</a> &gt; <a href="/telephone">Téléphones</a> &gt; <span class="bold">
                     </span>
                 </div>
-
-
-
-
-
                 <div class="col-12 text-center mt-2">
                     <h1 class="f24">{{ article?.libelleArticle }}</h1>
                 </div>
                 <div class="col-12 marg20b  text-left lnk_retour"><a href="/telephone">Retour vers les téléphones</a>
                 </div>
                 <div class="col-lg-5">
-
                     <div class="slick-carousel center-block text-center slick-initialized slick-slider slick-dotted"
                         style="width: 380px; height: 200px">
                         <a [href]="article?.fichierImage" data-toggle="modal" tabindex="-1">
                             <img [src]="article?.fichierImage" [alt]="article?.libelleArticle">
                         </a>
-                      
-                      
-                 
                         <div class="idr-details">
                             <div>
-    
-                                <div class="idr-indice-de-reparabilite">
-    
+                               <div class="idr-indice-de-reparabilite">
                                     <div id="divIndiceReparabilite" class="idr-indice">
                                         <div class="idr-tab-picto-indice-de-reparabilite">
-    
-                                            <div class="idr-tabNote-indice-de-reparabilite" style="border-color:#139D4F">
+                                            <div class="idr-tabNote-indice-de-reparabilite"
+                                                style="border-color:#139D4F">
                                                 <div class="idr-divNote-indice-de-reparabilite">
-                                                    <span id="LblNoteIndiceReparabilite" class="idr-text-entier">8,8</span>
+                                                    <span id="LblNoteIndiceReparabilite"
+                                                        class="idr-text-entier">8,8</span>
                                                     <span id="LblNoteIndiceReparabiliteSur10"
                                                         class="idr-text-total">/10</span>
                                                 </div>
                                             </div>
                                             <div id="divPictoIndiceReparabilite" class="idr-divPicto"
                                                 style="background-color: #139D4F">
-                                                <img alt="picto indice de réparabilité" src="/assets/carac/picto-idr.svg">
+                                                <img alt="picto indice de réparabilité"
+                                                    src="/assets/carac/picto-idr.svg">
                                             </div>
-    
-    
                                         </div>
                                     </div>
-    
+
                                     <div class="idr-tab-titre-indice-de-reparabilite text-center">
                                         <div>
                                             <span class="idr-text-indice-reparabilite">Indice de réparabilité</span>
                                         </div>
-    
                                         <div class="idr-lienDetailNote ">
                                             <a href="https://medias.lapostemobile.fr/pdf/indice_reparabilite/9410.pdf"
                                                 id="hrefDetailNote" class="link marg10b" target="_blank">Détail de la
@@ -83,153 +51,42 @@
                                         <a class="link f12" target="_blank"
                                             href="https://www.lapostemobile.fr/indice-reparabilite">Plus d'infos</a>
                                     </div>
-    
                                 </div>
-    
                             </div>
                         </div>
                     </div>
-                  
                 </div>
                 <div class="col-lg-6">
+                    <div class="col-lg-4 col-7">
+                        <ng-container *ngFor="let carac of caracteristiques" class="caracteristique libelleTelephone">
+                            <div class="col-6 col-lg-12 feature"
+                                [ngClass]="{'mobile-4G': carac.valeurCarasteristiquesArticles === '4G', 'mobile-5G': carac.valeurCarasteristiquesArticles === '5G'}">
+                            </div>
+                            <div *ngIf="carac.nomCaracteristiquesArticles === 'Photo'"
+                                class="col-6 col-lg-12 feature mobile-apn">
+                                {{ carac.valeurCarasteristiquesArticles }}
+                            </div>
+                            <div *ngIf="carac.nomCaracteristiquesArticles === 'Ecran'"
+                                class="col-6 col-lg-12 feature mobile-ecran">
+                                {{ carac.valeurCarasteristiquesArticles }}
+                            </div>
+                            <div *ngIf="carac.nomCaracteristiquesArticles === 'Memoire'"
+                                class="col-6 col-lg-12 feature mobile-memoire">
+                                {{ carac.valeurCarasteristiquesArticles }}
+                            </div>
+                        </ng-container>
+                    </div>
                     <div class="row">
                         <div class="col-lg-8 col-12">
-
-
-
-
                             <div>
-
-
-                                <div>
-
-                                    <div class="bloc_prix active bloc_choix marg20t" style="cursor: pointer"
-                                        onclick="chechRbAvecEngagement()">
-                                        <input id="mainContent_rb_avec_engagement" type="radio"
-                                            name="ctl00$mainContent$engagement" value="rb_avec_engagement"
-                                            checked="checked"><label for="mainContent_rb_avec_engagement">Avec un
-                                            forfait avec engagement</label>
-
-                                        <br>
-
-                                        <div class="row pad10t">
-                                            <div class="col-8 text-left ">
-
-
-                                                <div class="f14 h20 ">À partir de</div>
-                                                <span class="f28">1<sup>€00</sup></span>
-                                                <span class="Nexa font-bold f28"></span>
-                                                <div class="f13 pad10t" style="line-height: 18px;">
-
-
-
-
-                                                </div>
-
-                                            </div>
-                                            <div class="col-4 pad0 text-left">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 pad0l marg10t">
-                                            <input type="button" *ngIf="article" (click)="ajouterAuPanier(article)" value="Ajouter au Panier" class="btn btn-primary">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div>
-
-                                    <div class="bloc_prix bloc_choix marg20t" style="cursor: pointer"
-                                        onclick="chechRbSansEngagement()">
-                                        <input id="mainContent_rb_sans_engagement" type="radio"
-                                            name="ctl00$mainContent$engagement" value="rb_sans_engagement"><label
-                                            for="mainContent_rb_sans_engagement">Avec un forfait sans engagement</label>
-
-                                        <br>
-
-                                        <div class="row pad10t">
-                                            <div class="col-8 text-left">
-
-
-                                                <div class="f14 h20 hidden">À partir de</div>
-                                                <span class="f28">200<sup>€00</sup></span>
-                                                <span class="Nexa font-bold f28"></span>
-                                                <div class="f13 pad10t" style="line-height: 18px;">
-
-
-
-
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col-4 pad0 text-left">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 pad0l marg10t">
-                                            <input type="submit" name="ctl00$mainContent$btn_sans_engagement"
-                                                value="Ajouter au panier" id="mainContent_btn_sans_engagement"
-                                                class="btn btn-dark btn-block btn-lg pmAddToCart"
-                                                pmaddtocart="divPmArticle" style="display: none;"
-                                                kameleoonlistener-b5w1="true">
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-
-
+                                <input type="button"  class="btn btn-dark btn-block pad10tb" (click)="ajouteraupanier(telephone);naviguerVerspanier()"  value="Ajouter au Panier"
+                                    class="btn btn-primary">
+                                <br>
                             </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12" style="padding: 30px 0 0 30px">
-                            <div class="caracteristiques-list">
-                                <div *ngFor="let carac of caracteristiques" class="caracteristique libelleTelephone">
-                                    <div class="carac-nom">{{ carac.nomCaracteristiquesArticles }}</div>
-                                    <div class="carac-type">{{ carac.typeCaracteristiquesArticles }}</div>
-                                    <div class="carac-type">{{ carac.valeurCarasteristiquesArticles }}</div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                 
-
-                    <div class="desc">
-                        <h2 class="f18"></h2>
-                        <div class="f14">
-                            <p>Découvrez le nouveau Samsung Galaxy A14, un mobile qualitatif à un prix accessible. Conçu
-                                avec une texture striée, il possède un design fin et élégant avec des bordures
-                                délicatement arrondies.<br>Profitez de son bel écran immersif riche en détails Full HD+
-                                6,6’’ pour une immersion totale dans vos séries, films et jeux. Vous n’aurez plus aucune
-                                interruption grâce à son taux de rafraichissement de 60hz permettant de naviguer
-                                tranquillement.<br>Muni d’un triple capteur photo dont un principal de 50Mpx obtenez des
-                                clichés réalistes, nettes aux couleurs naturelles. <br>Muni d’un triple capteur photo
-                                dont un principal de 50Mpx obtenez des clichés réalistes, nettes aux couleurs
-                                naturelles.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-
-
-
-
-        <!-- FOOTER -->
-
-
-        <app-footer></app-footer>
-
     </main>
+    <app-footer></app-footer>

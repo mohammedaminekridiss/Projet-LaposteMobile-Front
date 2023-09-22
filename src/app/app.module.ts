@@ -14,7 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CaracteristiquesarticlesComponent } from './components/caracteristiquesarticles/caracteristiquesarticles.component';
 import { ForfaitsSansEngagementComponent } from './components/forfaits-sans-engagement/forfaits-sans-engagement.component';
 import { ForfaitsAvecTelephoneComponent } from './components/forfaits-avec-telephone/forfaits-avec-telephone.component';
- 
+import { CordonneesComponent } from './components/cordonnees/cordonnees.component';
+import { FormsModule } from '@angular/forms';
+import { LivraisonComponent } from './components/livraison/livraison.component';
+import { PaiementComponent } from './components/paiement/paiement.component';
+import { ErreurExpireComponent } from './components/erreur-expire/erreur-expire.component';
+  
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +33,16 @@ import { ForfaitsAvecTelephoneComponent } from './components/forfaits-avec-telep
     CaracteristiquesarticlesComponent,
     ForfaitsSansEngagementComponent,
     ForfaitsAvecTelephoneComponent,
-   ],
+    CordonneesComponent,
+    LivraisonComponent,
+    PaiementComponent,
+    ErreurExpireComponent,
+     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule ,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

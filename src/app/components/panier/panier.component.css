@@ -287,6 +287,32 @@ main {
     .navbar-expand-lg .navbar-collapse {
         margin-left: 68px;
     }
+
 }
- 
+ .prix {
+    display: inline-flex;
+} 
+.prix .decimale, .prix .decimale {
+    font-weight: 600;
+    line-height: .8;
+    margin-bottom: 0;
+}
+.prix .details {
+    padding-left: 4px;
+}
+.prix .details .cents {
+    font-weight: 600;
+    font-size: .5em;
+     text-align: left; 
+    line-height: 1;
+    display: block;
+}
+.prix .details .periode  {
+    font-size: .4em;
+    margin-top: 0;
+    padding-left: 0.1em;
+    text-align: left; 
+    line-height: 1;
+    display: block;
+}
  

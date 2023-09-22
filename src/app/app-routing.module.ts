@@ -8,6 +8,10 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { CaracteristiquesarticlesComponent } from './components/caracteristiquesarticles/caracteristiquesarticles.component';
 import { ForfaitsSansEngagementComponent } from './components/forfaits-sans-engagement/forfaits-sans-engagement.component';
 import { ForfaitsAvecTelephoneComponent } from './components/forfaits-avec-telephone/forfaits-avec-telephone.component';
+import { CordonneesComponent } from './components/cordonnees/cordonnees.component';
+import { LivraisonComponent } from './components/livraison/livraison.component';
+import { PaiementComponent } from './components/paiement/paiement.component';
+import { ErreurExpireComponent } from './components/erreur-expire/erreur-expire.component';
   
 const routes: Routes = [
    { path: 'forfaits', component: ForfaitsComponent },
@@ -18,6 +22,13 @@ const routes: Routes = [
    {path: 'caracteristiquesarticle/:id' , component: CaracteristiquesarticlesComponent},
    {path :'forfaits-sans-engagement' ,  component: ForfaitsSansEngagementComponent},
    {path :'forfaits-mobiles' ,  component: ForfaitsAvecTelephoneComponent},
+   {path : 'coordonnees' , component: CordonneesComponent},
+   {path : 'livraison' , component: LivraisonComponent},
+   {path : 'paiement' , component: PaiementComponent},
+   {path : 'erreur_expire' , component: ErreurExpireComponent}
+
+
+
 
 
 

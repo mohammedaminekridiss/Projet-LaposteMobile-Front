@@ -1,0 +1,277 @@
+<link href="/assets/cordonnees/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/cordonnees/site.min.css" rel="stylesheet">
+<link href="/assets/cordonnees/lpm-controles-ui.css" rel="stylesheet">
+
+<div class="row align-items-start">
+    <div class="col-lg-2 col-md-2 col-12 align-center-xs-down">
+        <div class="logo-lpm "></div>
+    </div>
+    <br class="d-block d-sm-none">
+    <br class="d-block d-sm-none">
+    <br class="d-block d-sm-none">
+    <div class="col-md-10 col-lg-10 col-sm-12 col-12 ">
+        <div class="row justify-content-center-sm-down">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none mrgl-sm-menu ">
+                <a (click)="naviguerVersErreur()" class="link">
+                    <div class="checked-step-icon"></div>
+                </a>
+                &nbsp;
+                <span class="txt-checked-step d-none d-lg-block d-md-block d-sm-block"> <a (click)="naviguerVersErreur()"class="link">Qui
+                        êtes-vous ?</a> </span>
+            </div>
+
+            <div class="col-1  d-block d-sm-none">
+                <div class="line"></div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
+                <div class="current-step-icon"></div>
+                &nbsp;
+                <span class="txt-current-step d-none d-lg-block d-md-block d-sm-block"> Livraison </span>
+
+
+
+            </div>
+
+            <div class="col-1  d-block d-sm-none">
+                <div class="line"></div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
+                <div class="not-checked-step-icon"></div>
+                &nbsp;
+                <span class="txt-not-checked-step d-none d-lg-block d-md-block d-sm-block"> Paiement </span>
+
+
+
+            </div>
+
+            <div class="col-1  d-block d-sm-none">
+                <div class="line"></div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
+                <div class="not-checked-step-icon"></div>
+                &nbsp;
+                <span class="txt-not-checked-step d-none d-lg-block d-md-block d-sm-block"> Confirmation </span>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="row d-block d-sm-none">
+    <br>
+    <div class=" col-12 d-block d-sm-none align-center-xs-down">
+        <span class="txt-current-step-mobile">Livraison</span>
+    </div>
+</div>
+<div class="container-fluid brume-bleu center-block" style="max-width: 1000px">
+    <div class="panel-livraison">
+        <div class="header_adresses">
+            1. Adresse de livraison et de facturation
+            <hr>
+        </div>
+        <div *ngIf="!afficherRecapCoordonnees" class="sous-panel-livraison marg30t">
+            <div class="row marg20b">
+                <div class="col-5 col-sm-4" style="padding-right: 0px;">
+                    <div class="input-group">
+                        <input type="text" maxlength="5"
+                            class=" form-input form-control form-control-text form-control-text-ph" pattern="[0-9]{5}"
+                            [(ngModel)]="adresse.Codepostal" placeholder="Code postal"
+                            (keypress)="validateNumberInput($event)">
+                    </div>
+                    <div class="form-control-tooltip" *ngIf="adresse.Codepostal === '' && validerCliquer">
+                        <div></div>
+
+                        <span>Vous devez saisir votre Codepostal.</span>
+                    </div>
+                </div>
+
+                <div class="col-7 col-sm-8" style="padding-right: 15px; padding-left: 10px">
+                    <div style="position:absolute;width:40px;height:40px;z-index:10;left:41%;top:16%">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" maxlength="25"
+                            class=" form-input form-control form-control-text form-control-text-ph"
+                            [(ngModel)]="adresse.Ville" placeholder="Ville">
+
+                    </div>
+                    <div class="form-control-tooltip" *ngIf="adresse.Ville === '' && validerCliquer">
+                        <div></div>
+                        <span>Vous devez saisir votre Ville.</span>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="row marg20b">
+                <div class="col-3" style="padding-right: 0px;">
+                    <div class="input-root" style="width: 100%">
+                        <div class="input-group">
+                            <input type="text" maxlength="15"
+                                class=" form-input form-control form-control-text form-control-text-ph"
+                                [(ngModel)]="adresse.Numero" placeholder="N°" (keypress)="validateNumberInput($event)">
+
+                        </div>
+                        <div class="form-control-tooltip" *ngIf="adresse.Numero === '' && validerCliquer">
+                            <div></div>
+                            <span>Vous devez saisir Le numéro de votre ville.</span>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-9" style="padding-left: 10px">
+                    <div class="input-root" style="width: 100%">
+                        <div class="input-group">
+                            <input type="text" maxlength="32"
+                                class="form-input form-control form-control-text form-control-text-ph"
+                                [(ngModel)]="adresse.Voie" placeholder="Voie">
+                        </div>
+                        <div class="form-control-tooltip" *ngIf="adresse.Voie === '' && validerCliquer">
+                            <div></div>
+                            <span>Vous devez saisir La Voie.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="marg20b">
+                <div class="input-root" style="width: 100%">
+                    <div class="input-group">
+                        <input type="text" maxlength="31"
+                            class="form-input form-control form-control-text form-control-text-ph"
+                            [(ngModel)]="adresse.AdresseComp" placeholder="Adresse">
+                    </div>
+                    <div class="form-control-tooltip" *ngIf="adresse.AdresseComp === '' && validerCliquer">
+                        <div></div>
+                        <span>Vous devez saisir Votre adresse .</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center marg10t marg20b">
+                <input type="button" (click)="valideradresse()" value="Valider"
+                    class="btn btn-dark btn-valider center-block disableClick">
+
+            </div>
+
+
+        </div>
+        <div *ngIf="afficherRecapCoordonnees" class="marg17l">
+            <div class="row">
+                <div class="col">
+                    <address class="prospect-address">
+                        <span class="prospect-name"><b>{{ prospect.nom }} {{ prospect.prenom }}</b></span><br>
+                        <span class="prospect-street">{{ adresse.Numero }} {{ adresse.Voie }}</span><br>
+                        <span class="prospect-location">{{ adresse.Codepostal }} {{ adresse.Ville }}</span>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="panel-livraison pm-mode-livraison-pview">
+
+        <div class="header_livraison">
+            2. Choix de livraison
+            <hr>
+        </div>
+
+        <div class="sous-panel-choix-livraison marg30t" *ngIf="afficherRecapCoordonnees">
+
+
+            
+                <div class="row text-center marg20b">
+ 
+                    <div class="col-12 col-md-6" *ngFor="let modeLivraison of modesLivraison">
+                        <div class="carte" [class.carte-choix-livraison-selected]="modeLivraison.idModeLivraison === idDuModeSelectionne" (click)="selectChoixLivraison(modeLivraison)">        
+                         <div class="marg20b">
+                                <span class="font0-8">Livraison<br>{{modeLivraison.idModeLivraison}} {{ modeLivraison.libelleModeLivraison }} </span>
+                                <div> 
+                                    <strong>
+                                        <span class="libelle">
+                                            {{ modeLivraison.prixLivraison === 0 ? 'Gratuit' : modeLivraison.prixLivraison + '€00' }}
+                                        </span>
+                                    </strong><br>
+                                </div>
+                                
+                            </div>
+
+                            <div class="marg10b">
+                                <img src="/assets/livraison/chronopost.png" class="imgLiv" alt="">
+                            </div>
+
+
+                            <div class="font0-8 marg10b">
+                                Livraison estimée le 22/09
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+ 
+        <div   class="marg10b" style="display: flex" *ngIf="afficherRecapCoordonnees">
+
+            <a    (click)="validerCommande(modelivraison)"
+                class="btn btn-dark btn-valider center-block disableClick"  
+                 >Valider</a>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div class="footer container-fluid align-center-xs-down footer-position">
+    <div class="row">
+
+        <div class="col-12 align-center-xs-down">
+            <div class="line-footer"></div>
+        </div>
+    </div>
+    <div class="row mrgt-15 ">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
+            <span class="footer-text-font"> <a href="https://www.lapostemobile.fr/mentions-legales"
+                    target="_blank">Mentions Légales</a></span>&nbsp; <br class=" d-block d-md-none">
+            <span class="footer-text-font"><a href="https://www.lapostemobile.fr/conditions-et-tarifs"
+                    target="_blank">Conditions Générales de Ventes</a></span>&nbsp; <br class=" d-block d-md-none">
+            <span class="footer-text-font"><a href="https://www.lapostemobile.fr/donnees" target="_blank">Données
+                    personnelles</a></span>&nbsp; <br class=" d-block d-md-none">
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-12 col-12 offset-lg-2 offset-md-1 padding-none">
+            <br class=" d-block d-md-none">
+            <div class="d-inline-flex">
+                <div class="icon-cad"></div>
+                <span class="d-none d-md-block">&nbsp;</span> &nbsp;
+                <span class="">Paiement sécurisé</span><span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
+                <div class="icon-cb"></div>
+                <span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
+                <div class="icon-visa"></div>
+                <span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
+                <div class="icon-master-card"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

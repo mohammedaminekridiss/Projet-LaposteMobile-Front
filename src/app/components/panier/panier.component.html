@@ -1,151 +1,186 @@
-<!DOCTYPE html>
- <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<main>
 
-             
-     
-    <link rel="stylesheet" type="text/css" href="/assets/panier/slick.css">
-    <link rel="stylesheet" type="text/css" href="/assets/panier/slick-theme.css">
-    <link media="screen" rel="stylesheet" type="text/css" href="/assets/panier/font-awesome.min.css">
-    <link href="/assets/panier/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/panier/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
-    <link href="/assets/panier/site.min.css" rel="stylesheet">
-    <link href="/assets/panier/lpm-controles-ui.css" rel="stylesheet"> 
-    <link rel="preload" as="script" href="/assets/panier/sdk.9701b7b236c7ec8b6e9a929723eb6838f2446122.js.download"><script type="text/javascript" async="" src="/assets/panier/sdk.9701b7b236c7ec8b6e9a929723eb6838f2446122.js.download" charset="utf-8"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="/assets/panier/kameleoon.js.download" type="text/javascript" async="" data-tagmanager="true"></script><script src="/assets/panier/5549265.js.download" type="text/javascript" async="" data-ueto="ueto_9134a2fb52"></script><script type="text/javascript" charset="UTF-8" async="" defer="" src="/assets/panier/js"></script><script type="text/javascript" async="" defer="" src="/assets/panier/perform.php"></script><script type="text/javascript" async="" defer="" src="/assets/panier/perform(1).php"></script><script type="text/javascript" async="" defer="" src="/assets/panier/cart.d"></script><script src="/assets/panier/dd.php" type="text/javascript" async="" defer=""></script><script src="/assets/panier/dd(1).php" type="text/javascript" async="" defer=""></script></head>
-<body ><iframe src="/assets/panier/client_iframe.html" dmpready="yes" style="display: none; visibility: hidden; opacity: 0; width: 0px; height: 0px; position: absolute;"></iframe><div id="didomi-host" data-nosnippet="true" aria-hidden="true"></div><iframe name="__tcfapiLocator" title="__tcfapiLocator" style="display: none;" src="/assets/panier/saved_resource.html"></iframe>
-    <form method="post" action="https://www.lapostemobile.fr/panier" id="form1">
-<div class="aspNetHidden">
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
-</div>
 
- 
-<div class="aspNetHidden">
 
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="57583204">
-</div>
-   
 
-       <app-header></app-header>
 
-        <main>
-           
-            <div class="besoinAide" style="width: 131px;">
-                <div class="td" id="openWebCall">
-                    <img src="/assets/panier/sticker-btn-close.png" alt="Besoin d&#39;aide?" role="button" class="poignee" style="max-width: none; cursor: pointer;">
-                </div>
-                <div class="td" id="webcall">
-                    <a href="tel:0805305009" target="_blank" class="d-block d-md-none">
-                        <img src="/assets/panier/sticker-btn-contact.png" alt="Besoin d&#39;aide?" style="max-width: none;">
-                    </a>
-                    <a href="https://www.lapostemobile.fr/contact" target="_blank" class="d-none d-sm-block">
-                        <img src="/assets/panier/sticker-btn-contact.png" alt="Besoin d&#39;aide?" style="max-width: none;">
-                    </a>
-                </div>
-            </div>
-            
-<div hidden="">
-    <div class="container">
-        <div class="row pad10b pad10t">
-	
-            <div class="col-md-4 text-center font-bold">Utilisateur :  </div>
-            <div class="col-md-4 text-center font-bold">Type Enseigne :  </div>
-            <div class="col-md-4 text-center font-bold">Saisie CB : </div>
-        
-</div>
-    </div>
-</div>
-
-            
-    <div id="forfaitPanier" class="forfaitPanier" type="hidden" pmid="" pmname="" pmprice="" pmcategory="forfait" pmbrand="" pmphoneplan="">
-    </div>
-    <div id="articlePanier" class="articlePanier" type="hidden" pmid="" pmname="" pmprice="" pmcategory="telephone" pmbrand="" pmphoneplan="">
-    </div>
     <div class="container-fluid">
-        
 
 
-        
-        <div id="mainContent_upd_blocks" class="row page_panier">
-	
-                <div class="col-12">
-                    <img src="/assets/panier/panier_vide.svg" class="panier_vide ">
-                    <h1 class="text-center titre-panier">Mon panier est vide </h1>
+
+        <div class="row">
+
+        <div class="col-md-8"  >
+            <div class="col-12">
+                <img src="https://medias.lapostemobile.fr/portail_mobile/img/souscription/panier_vide.svg"
+                    class="panier_vide ">
+                    <h1 class="text-center titre-panier">{{ panierVide ? 'Mon panier est vide' : 'Mon panier' }}</h1>
                 </div>
-                <div class="col-sm-8 offset-sm-2">
-                    <div id="mainContent_ctl01">
-		
-                            <div id="panier_gauche" class="bloc pad30b marg30b">
-                                <div class="titre_selection">Ma sélection</div>
-                                <div class="row no-bg-xs titre_forfait_vide">
-                                  <div class="col-12 col-sm-6">
-                                    <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Forfait</div>
-                                    <div *ngIf="offreSelectionnee | async as offre" class="mx-auto marg20b marg20t" style="width: 100px;">
-                                      <img class="img_vide" src="/assets/panier/picto-sim-grey.svg">
-                                      <div>{{ offre.libelleMarketing }}</div>
-                                      <div>{{ offre.prix }}</div>
-                                      <!-- ... Autres détails de l'offre ... -->
-                                  
-                                      <!-- Boutons Modifier et Supprimer -->
-                                      <div class="d-flex align-items-center justify-content-center">
-                                        <button class="btn btn-primary mr-2" (click)="modifierOffre(offre)">Modifier</button>
-                                        <button class="btn btn-danger" (click)="supprimerOffre(offre)">Supprimer</button>
-                                      </div>
+            <div class="col-sm-8 offset-sm-2">
+                <div id="mainContent_ctl01">
+
+                    <div id="panier_gauche" class="bloc pad30b marg30b">
+                        <div class="titre_selection">Ma sélection</div>
+                        <div class="row no-bg-xs titre_forfait_vide">
+                            <div class="col-12 col-sm-6">
+
+                                <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Forfait
+                                </div>
+                                <div class="mx-auto marg20b marg20t" style="width: 100px;" *ngIf="!offreSelectionnee">
+                                    <img class="img_vide"
+                                        src="https://medias.lapostemobile.fr/portail_mobile/img/souscription/picto-sim-grey.svg">
+                                </div>
+                                <div *ngIf="offreSelectionnee">
+                                    <div class="text-center">
+
+                                        <a class="lnk_panier pmEditCart" (click)="modifierForfait(offreSelectionnee)"
+                                            href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$mainContent$ctl12&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">Modifier</a>
+                                        <!-- Ajoutez un bouton "Supprimer" -->
+                                        <a class="lnk_panier pmEditCart" (click)="supprimerForfait(offreSelectionnee)"
+                                            href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$mainContent$ctl12&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">Supprimer</a>
                                     </div>
-                                    <div *ngIf="!(offreSelectionnee | async)" class="text-center">
-                                      <a class="link_vide" href="/forfaits">Ajouter un forfait</a>
-                                    </div>
-                                  </div>
+                                    <div class="row marg20t">
+
+                                        <div class="col-12 text-center">
+                                            <div
+                                                class="forfait_type ib d-flex justify-content-center align-items-center">
+                                                {{ offreSelectionnee.libelleMarketing }}
+                                            </div>
+
+                                            <div class="nexa_h f28">
+
+
+                                                <p class="prix">
+                                                    <span class="decimale">{{ offreSelectionnee.prix }}</span>
+                                                    <span class="details">
+                                                        <span class="cents">€00</span>
+                                                        <span class="periode">/mois</span> </span>
+                                                </p>
+                                                <img src="/assets/panier/design.PNG">
+                                 
+                                                                         </div>
+                                 
+                                                                     </div>
+                                                                 </div>
+                                                                </div>
                                   
-                                    
-                                    <div class="col-12 d-block d-lg-none p-2 text-center h50 titre_forfait_vide"></div>
-                                    <div class="col-12 col-sm-6">
-                                      <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon Téléphone</div>
-                                      
-                                      <!-- Affichage du contenu de l'article (téléphone) -->
-                                      <div *ngIf="articleSelectionne | async as article" class="mx-auto marg20b marg20t" style="width: 100px;">
-                                        <img class="img_vide" [src]="article.fichierImage" alt="{{ article.libelleArticle }}" loading="lazy">
-                                        <div>{{ article.libelleArticle }}</div>
-                                       
-                                        <!-- ... Autres détails de l'article ... -->
-                                        
-                                        <!-- Boutons Modifier et Supprimer -->
-                                        <div class="d-flex align-items-center justify-content-center">
-                                          <button class="btn btn-primary mr-2" (click)="modifierArticle(article)">Modifier</button>
-                                          <button class="btn btn-danger" (click)="supprimerArticle(article)">Supprimer</button>
+                                
+
+
+                                <div class=" text-center">
+                                                <a class="link_vide"
+                                                    href="/forfaits">Ajouter un
+                                                    forfait</a>
+                                            </div>
                                         </div>
-                                      </div>
-                                      
-                                      <!-- Affichage d'un lien si aucun article n'est sélectionné -->
-                                      <div *ngIf="!(articleSelectionne | async)" class="text-center">
-                                        <a class="link_vide" href="/telephone">Ajouter un téléphone</a>
-                                      </div>
+
+                                        <div class="col-12 d-block d-lg-none p-2 text-center h50 titre_forfait_vide">
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+
+                                            <div class="titre_panier text-center marg25tb5" style="color: #E4E4E4;">Mon
+                                                Téléphone
+                                            </div>
+                                            <div class="mx-auto marg20b marg20t" style="width: 100px;" *ngIf="!articleSelectionnee" >
+                                                <img class="img_vide"
+                                                    src="https://medias.lapostemobile.fr/portail_mobile/img/souscription/tel-vide.svg">
+                                            </div>
+                                            <div *ngIf="articleSelectionnee" >
+                                                <div class="text-center">
+
+                                                    <a class="lnk_panier pmEditCart" (click)="modifierArticle(articleSelectionnee)"
+                                                        href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$mainContent$ctl12&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">Modifier</a>
+                                                    <!-- Ajoutez un bouton "Supprimer" -->
+                                                    <a class="lnk_panier pmEditCart" (click)="supprimerArticle(articleSelectionnee)"
+                                                        href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$mainContent$ctl12&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">Supprimer</a>
+                    
+                
+                    </div>
+                                               
+                
+                
+                
+                                               <div class="row marg20t bl_gris_lg">
+                                                 
+                                                
+                                                <div class="col-4">
+                                                        <a>
+                                                            <img src="{{ articleSelectionnee.fichierImage }}"
+                                                                 alt="{{ articleSelectionnee.libelleArticle }}">
+                                                        </a>
+                                                  </div>
+                                                    
+                                                    
+                                                    <div class="col-8 pad0l">
+                                                        
+                                                        <div class="mobile_libelle" >
+                                                           {{  articleSelectionnee.libelleArticle }}</div>
+                                                           <div class="col-12 d-none d-lg-block">
+                                                            <div class="carac-valeur text-center" *ngFor="let prixArticle of prixArticles">
+                                                                 <span class="f28" style="font-family: 'Nexa-heavy';">
+                                                                    {{ prixArticle.prixArticle1 }}<sup>€00</sup>
+                        
+                                                                </span>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        
+                                                       </div>
+                                                 
+                                            </div>
+                
+                                            </div>
+                                            <div class="text-center">
+                                                <a class="link_vide"
+                                                    href="/telephone">Ajouter
+                                                    un téléphone</a>
+                                            </div>
+
+                                        </div>
+
                                     </div>
-                                    
-                                    
+
                                 </div>
 
                             </div>
-                        
-	</div>
 
 
+
+
+                        </div>
                     
 
-                </div>
-                <div class="col-sm-4">
-                    <div style="position: sticky; top: 80px; z-index: 1020;">
-                        <div id="mainContent_updPanier">
-		
-                                
-                            
-	</div>
-                    </div>
-                </div>
+        </div>
+        <div class="col-md-4"*ngIf="offreSelectionnee && articleSelectionnee" >
+            <div style="position: sticky; top: 80px; z-index: 1020;">
+                <div id="mainContent_updPanier">
 
-            
+                        
+
+
+<div class="bloc ombre bloc_droite">
+<div class="titre_prix">Je paie quoi et quand ?</div>
+<div class="bloc_aujourdhui" visible="True">
+<div class="row">
+    <div class="titre_panier total_panier col-auto">Aujourd’hui</div>
+    <div class="total_prix col">{{ calculerSomme().toFixed(2) }}<sup>€</sup> </div>
 </div>
-    </div>
+
+<div id="mainContent_ctl22_vspArticle" class="row"  >
+    <div class="libelle_prix col-9 marg0b">{{ articleSelectionnee.libelleArticle }}</div>
+    <div class="val_prix col-3 marg0b" *ngFor="let prixArticle of prixArticles"> {{ prixArticle.prixArticle1 }}<sup>€00</sup></div>
+    
+</div>
+
+
+
+
+<div class="row">
+    
+    <div class="libelle_prix col-9">1ère mensualité du forfait</div>
+    <div class="val_prix col-3">{{offreSelectionnee.prix}}<sup>€</sup></div>
+
+</div>
 
 
 
@@ -153,18 +188,46 @@
 
 
 
-            <!-- FOOTER -->
-            
+</div>
+<div class="bloc_par_mois">
+<div class="row">
+    <div class="titre_panier total_panier col-auto" style="margin: 30px 0 0 0">Par mois</div>
+    <div class="total_prix col" style="margin: 30px 0 0 0">{{offreSelectionnee.prix}}<sup>€</sup> </div>
+</div>
+
+<div style="width: 100%; margin-bottom: 30px;"></div>
+<div class="row">
+    
+    <div class="libelle_prix col-9">Mensualité du forfait</div>
+    <div class="val_prix col-3">{{offreSelectionnee.prix}}<sup>€</sup></div>
+
+</div>
 
 
-<app-footer></app-footer>
-            
-        </main>
- 
-     
-
-  
-        </form>
 
 
- 
+
+
+</div>
+
+<div class="text-center marg20t">
+    <button (click)="passerCommande();naviguerVerscoordonnees()" class="btn btn-dark btn-block pad10tb">Commander</button>
+</div>
+</div>
+                    
+</div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+
+
+
+
+
+
+
+                <app-footer></app-footer>
+
+</main>

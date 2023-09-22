@@ -1,8 +1,7 @@
 import { CaracteristiquesArticles } from './CaracteristiquesArticles';
-
 export class Article {
 
-    idArticle: number=0;
+    idArticle: number= 0;
     IdTypeArticle: number=0 ; 
     CodeSap:String='' ;
     libelleArticle:String='' ;

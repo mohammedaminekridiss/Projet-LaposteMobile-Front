@@ -4,9 +4,7 @@
 
   IdArticle : number =0;
 
- typeCaracteristiquesArticles : number =0;
-
  nomCaracteristiquesArticles :string ='';
 
- valeurCarasteristiquesArticles : number =0; 
+ valeurCarasteristiquesArticles : string = ''; 
 }

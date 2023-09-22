@@ -60,28 +60,47 @@
                       <div class="col-md-6 col-lg-4 estTelephone">
                         <a [routerLink]="['/caracteristiquesarticle', article.idArticle]">
                             <div class="offreTel pmViewItemList">
-                            <!-- Affichage des détails de l'article -->
-                            <h2 class="col-12 h50 marg10t libelleTelephone">{{ article.libelleArticle }}</h2>
-                  
+                          
                             <div class="col-lg-5 offset-lg-3 col-12 d-flex justify-content-center mt-2">
                               <img id="ImgTelephone" class="maxh180" [src]="article.fichierImage" alt="{{ article.libelleArticle }}" loading="lazy">
+                              <div class="col-lg-4 col-7">
+
+                                     <ng-container *ngFor="let carac of article.caracteristiquesArticles" class="caracteristique libelleTelephone">
+                                        <div class="col-6 col-lg-12 feature"[ngClass]="{'mobile-4G': carac.valeurCarasteristiquesArticles === '4G', 'mobile-5G': carac.valeurCarasteristiquesArticles === '5G'}">
+                                        </div>
+                                        <div *ngIf="carac.nomCaracteristiquesArticles === 'Photo'" class="col-6 col-lg-12 feature mobile-apn">
+                                          {{ carac.valeurCarasteristiquesArticles }}
+                                        </div>
+                                        <div *ngIf="carac.nomCaracteristiquesArticles === 'Ecran'" class="col-6 col-lg-12 feature mobile-ecran">
+                                          {{ carac.valeurCarasteristiquesArticles }}
+                                        </div>
+                                        <div *ngIf="carac.nomCaracteristiquesArticles === 'Memoire'" class="col-6 col-lg-12 feature mobile-memoire">
+                                          {{ carac.valeurCarasteristiquesArticles }}
+                                        </div>
+                                      </ng-container>
+                                      
+                                   </div>
+                                  
                             </div>
-                            <!-- Affichage des caractéristiques -->
-                            <div class="col-lg-12 text-center mt-2">
-                              <div *ngFor="let carac of article.caracteristiquesArticles" class="caracteristique libelleTelephone">
-                                <div class="carac-nom">{{ carac.nomCaracteristiquesArticles }}</div>
-                                <div class="carac-type">{{ carac.typeCaracteristiquesArticles }}</div>
-                                <div class="carac-valeur">
-                                  <div class="f14 h20">À partir de</div>
-                                  <span class="f28" style="font-family: 'Nexa-heavy';">{{ carac.valeurCarasteristiquesArticles }}<sup>€00</sup></span>
-                                  <span class="Nexa font-bold f28"></span>
-                                  <div class="f13 pad10t" style="line-height: 18px;"></div>
+
+                            <h2 class="col-12 h50 marg10t libelleTelephone">
+                                {{ article.libelleArticle }}</h2>
+                            <div></div>
+                            
+                            <div class="col-12 d-none d-lg-block" *ngFor="let prixArticle of prixArticles">
+                                <div class="carac-valeur text-center" *ngIf="prixArticle.idArticle === article.idArticle ">
+                                    <span class="f28" style="font-family: 'Nexa-heavy';">{{ prixArticle.prixArticle1 }}<sup>€00</sup></span>
                                 </div>
-                              </div>
                             </div>
-                          </div>
-                        </a>
+                            
+                                 <!-- Affichage des caractéristiques -->
+                               
+                            
+                                 
+                                    
+                       </div></a>
                       </div>
+                      
                       <!-- Insérer une nouvelle ligne après chaque groupe de trois articles -->
                       <div class="clearfix visible-md visible-lg" *ngIf="(i + 1) % 3 === 0"></div>
                     </ng-container>

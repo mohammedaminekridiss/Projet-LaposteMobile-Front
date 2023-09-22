@@ -1,4 +1,15 @@
- 
+main {
+    margin-top: 100px;  
+ } 
+ .bgColor-yellow {
+    background-color: yellow;  
+    padding: 20px;  
+}
+
+.white-bg {
+    background-color: white;  
+     padding: 20px;  
+    border-radius: 10px; } 
 .panier .imageButtonItemMenuHv2 {
     background: url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket.svg) no-repeat center center
 }
@@ -18,225 +29,11 @@
     background: url(https://medias.lapostemobile.fr/portail_mobile/img/pictos/icon-basket-notif.svg) no-repeat center center;
 }
 
-.header-margin {
-    margin-bottom: 80px;
-}
+ 
  .svg-white {
     fill: #fff;
 }
-
-.is-footer {
-    background: url('https://medias.lapostemobile.fr/portail_mobile/img/footer-bg.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    padding-bottom: 30px;
+ 
+.bold-text {
+    font-weight: bold; /* Met le texte en gras */
 }
-
-.is-footer hr {
-    border: 1px solid #ffffff;
-    background-color: #fff;
-    height: 0px;
-    margin-bottom: 80px;
-}
-
-.footer-socialnetworks ul {
-    text-align: right;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
-
-.footer-socialnetworks li {
-    display: inline-block;
-    padding-left: 60px;
-}
-
-.footer-socialnetworks li:last-child {
-    padding-right: 30px;
-}
-
-.is-footer .footer-first-links {
-    color: #ffffff;
-    margin-top: 60px;
-}
-
-.is-footer .footer-list-links {
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 22px;
-}
-
-.is-footer .footer-list-links a {
-    color: #ffffff;
-}
-
-.is-footer .footer-list-links a:hover {
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.footer-links-is-title {
-    color: #ffffff;
-    font-size: 16px;
-    font-family: Nexa-heavy;
-}
-
-.footer-secondary-links {
-    color: #ffffff;
-    margin-top: 35px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-secondary-links a {
-    color: #ffffff;
-    font-size: 12px;
-}
-
-.footer-secondary-links ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-secondary-links li {
-    display: inline;
-    padding-right: 25px;
-    padding-left: 0px;
-}
-
-.footer-secondary-links li:last-child {
-    padding-right: 0px;
-}
-
-.footer-list-links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.footer-list-links ul {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.chevron {
-    font-size: 35px;
-    transition: 0.5s;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.flip {
-    transform: rotateX(180deg);
-    transition: 0.5s;
-}
-
-.cookies {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.picto-cookie {
-    height: 15px;
-    margin-right: 5px;
-}
-
-.logo-footer {
-    height: 40px;
-}
-
-@media screen and (max-width:991px) {
-    .is-footer {
-        background: url('https://medias.lapostemobile.fr/portail_mobile/img/footer-bg-mobile.jpeg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-        max-height: 100%;
-        /*background-attachment: fixed;*/
-    }
-
-    .footer-socialnetworks ul {
-        text-align: center;
-    }
-
-    .footer-socialnetworks ul li:first-child {
-        padding-left: 0px;
-    }
-
-    .footer-socialnetworks ul li:last-child {
-        padding-right: 0px;
-    }
-
-    .is-footer hr {
-        margin-bottom: 30px;
-    }
-
-    .footer-list-links {
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 15px;
-    }
-
-    .footer-list-links ul li {
-        padding: 20px;
-    }
-
-    .footer-links-is-title {
-        font-size: 14px;
-        width: 100%;
-    }
-
-    .is-footer .container .footer-first-links:first-child {
-        margin-top: 50px;
-    }
-
-    .is-footer .footer-first-links {
-        margin-top: 0px;
-    }
-
-    .footer-secondary-links {
-        display: block;
-        text-align: center;
-    }
-
-    .footer-secondary-links ul {
-        display: block;
-    }
-
-    .footer-secondary-links ul:nth-child(2) {
-        display: flex;
-        width: 75%;
-        justify-content: space-between;
-        margin: 50px auto;
-    }
-
-    .footer-secondary-links ul:last-child li {
-        padding-right: 20px;
-    }
-
-    .footer-secondary-links ul:last-child li:last-child {
-        padding-right: 0px;
-    }
-
-    .footer-secondary-links ul:first-child li {
-        display: block;
-        margin-bottom: 30px;
-    }
-
-    .footer-secondary-links ul li {
-        margin-bottom: 5px;
-        padding: 0px;
-        font-size: 12px;
-    }
-
-    .container {
-        width: 85%;
-        padding: 0;
-    }
-}
-

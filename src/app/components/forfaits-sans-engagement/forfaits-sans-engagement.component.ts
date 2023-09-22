@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OffreEngagement } from 'src/app/models/Offreengagement';
-import { OffreengagementService } from 'src/app/services/offreengagement.service';
+ import { OffreengagementService } from 'src/app/services/offreengagement.service';
 import { PanierService } from 'src/app/services/panier.service';
-
+ 
 @Component({
   selector: 'app-forfaits-sans-engagement',
   templateUrl: './forfaits-sans-engagement.component.html',
@@ -12,17 +13,20 @@ import { PanierService } from 'src/app/services/panier.service';
 export class ForfaitsSansEngagementComponent {
   
   offres: OffreEngagement[] = [];  // Déclaration sans initialisation
-
+ 
    
   constructor(
     private offreengagementservice: OffreengagementService,
     private panierService: PanierService,
+    private router: Router,
 
    ) {}
 
   ngOnInit(): void {
     this.loadoffres();
+  
   }
+  
 
   loadoffres() {
     const offresObservable: Observable<OffreEngagement[]> = this.offreengagementservice.getoffres();
@@ -38,10 +42,11 @@ export class ForfaitsSansEngagementComponent {
     );
   }
   ajouterAuPanier(offre: OffreEngagement) {
-    this.panierService.ajouterOffre(offre);
+    this.panierService.ajouterAuPanier(offre);
   }
-  
-  
+  naviguerVersPanier() {
+    this.router.navigate(['/panier']);
+}
   }
   
   
