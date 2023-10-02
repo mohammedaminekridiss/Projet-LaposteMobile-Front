@@ -770,10 +770,20 @@
     }
 }
 
-/* END CSS FOOTER */
- .btn-lien
+  .btn-lien
 {
     border: none;
     background-color: transparent;
+}
+ 
+ .lien-ml {
+    color: black !important;
+    font-family: 'Nexa';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    cursor: pointer;
+    text-decoration: underline !important;
 }
  

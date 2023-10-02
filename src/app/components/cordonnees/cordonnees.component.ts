@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Prospect } from 'src/app/models/Prospect';
 import { ProspectService } from 'src/app/services/prospect.service';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cordonnees',
@@ -36,32 +37,41 @@ export class CordonneesComponent {
 
   validerprospect() {
     this.validerClique = true;
-    if (this.prospect.nom === '' || this.prospect.prenom === ''  || this.prospect.depNaissance === ''|| this.prospect.email === '') {
+    if (this.prospect.nom === '' || this.prospect.prenom === ''  || this.prospect.depNaissance === ''|| this.prospect.email === ''|| !this.prospect.IdCivilite  ) {
     } else {
       // Récupérez l'ID de l'offre sélectionnée depuis le LocalStorage
       const idsouscription = localStorage.getItem('id_souscription');
       this.prospectservice.createprospect(this.prospect, idsouscription).subscribe();
+      this.router.navigate(['/livraison'], { 
+        state: { 
+          prospect: this.prospect,
+          }
+      });
     }
   
   }
+ 
+
+ 
   validateNumberInput(event: KeyboardEvent) {
     const inputChar = String.fromCharCode(event.charCode);
-  
-    // Vérifiez si le caractère saisi n'est pas un chiffre (0-9)
-    if (!/^[0-9]+$/.test(inputChar)) {
-      event.preventDefault(); // Empêche l'entrée du caractère non numérique
+      if (!/^[0-9]+$/.test(inputChar)) {
+      event.preventDefault(); 
     }
   }
-  passerAuLivraison() {
-    this.router.navigate(['/livraison'], { 
-      state: { 
-        prospect: this.prospect,
-        }
-    });
-    
+  isNameValid(): boolean {
+    const namePattern = /^[a-zA-Z]+$/;
+    return namePattern.test(this.prospect.nom);
   }
-  
-
+  isprenomValid(): boolean {
+    const namePattern = /^[a-zA-Z]+$/;
+    return namePattern.test(this.prospect.prenom);
+  }
+  isEmailValid(email: string): boolean {
+     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  }
+ 
 
 
 }

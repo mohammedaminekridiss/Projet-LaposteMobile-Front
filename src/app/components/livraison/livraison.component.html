@@ -87,7 +87,7 @@
                             [(ngModel)]="adresse.Codepostal" placeholder="Code postal"
                             (keypress)="validateNumberInput($event)">
                     </div>
-                    <div class="form-control-tooltip" *ngIf="adresse.Codepostal === '' && validerCliquer">
+                    <div class="form-error" *ngIf="adresse.Codepostal === '' && validerCliquer">
                         <div></div>
 
                         <span>Vous devez saisir votre Codepostal.</span>
@@ -104,7 +104,7 @@
                             [(ngModel)]="adresse.Ville" placeholder="Ville">
 
                     </div>
-                    <div class="form-control-tooltip" *ngIf="adresse.Ville === '' && validerCliquer">
+                    <div class="form-error" *ngIf="adresse.Ville === '' && validerCliquer">
                         <div></div>
                         <span>Vous devez saisir votre Ville.</span>
                     </div>
@@ -123,7 +123,7 @@
                                 [(ngModel)]="adresse.Numero" placeholder="N°" (keypress)="validateNumberInput($event)">
 
                         </div>
-                        <div class="form-control-tooltip" *ngIf="adresse.Numero === '' && validerCliquer">
+                        <div class="form-error" *ngIf="adresse.Numero === '' && validerCliquer">
                             <div></div>
                             <span>Vous devez saisir Le numéro de votre ville.</span>
                         </div>
@@ -138,7 +138,7 @@
                                 class="form-input form-control form-control-text form-control-text-ph"
                                 [(ngModel)]="adresse.Voie" placeholder="Voie">
                         </div>
-                        <div class="form-control-tooltip" *ngIf="adresse.Voie === '' && validerCliquer">
+                        <div class="form-error" *ngIf="adresse.Voie === '' && validerCliquer">
                             <div></div>
                             <span>Vous devez saisir La Voie.</span>
                         </div>
@@ -154,7 +154,7 @@
                             class="form-input form-control form-control-text form-control-text-ph"
                             [(ngModel)]="adresse.AdresseComp" placeholder="Adresse">
                     </div>
-                    <div class="form-control-tooltip" *ngIf="adresse.AdresseComp === '' && validerCliquer">
+                    <div class="form-error" *ngIf="adresse.AdresseComp === '' && validerCliquer">
                         <div></div>
                         <span>Vous devez saisir Votre adresse .</span>
                     </div>

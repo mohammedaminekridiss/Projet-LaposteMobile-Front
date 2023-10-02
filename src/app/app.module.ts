@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
  import { ForfaitsComponent } from './components/forfaits/forfaits.component';
@@ -42,7 +43,9 @@ import { ErreurExpireComponent } from './components/erreur-expire/erreur-expire.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule ,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

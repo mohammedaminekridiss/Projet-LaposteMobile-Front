@@ -12,9 +12,13 @@ import { CordonneesComponent } from './components/cordonnees/cordonnees.componen
 import { LivraisonComponent } from './components/livraison/livraison.component';
 import { PaiementComponent } from './components/paiement/paiement.component';
 import { ErreurExpireComponent } from './components/erreur-expire/erreur-expire.component';
+import { AppComponent } from './app.component';
   
+
 const routes: Routes = [
-   { path: 'forfaits', component: ForfaitsComponent },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' }, // Redirection vers '/home'
+
+    { path: 'forfaits', component: ForfaitsComponent },
   { path: 'telephone', component: TelephonesComponent },
    {path : 'boxinternet' , component: BoxinternetComponent},
    {path : 'panier' , component: PanierComponent},

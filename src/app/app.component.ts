@@ -17,11 +17,12 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
-        if (currentRoute === '/coordonnees' || currentRoute === '/livraison') {
+        if (currentRoute === '/coordonnees' || currentRoute === '/livraison' || currentRoute === '/paiement') {
           this.headerGuardService.hideHeader(); // Masquer le header sur les pages "coordonnees" et "livraison"
         } else {
           this.headerGuardService.showHeader(); // Afficher le header sur les autres pages
         }
+        
       }
     });
   }

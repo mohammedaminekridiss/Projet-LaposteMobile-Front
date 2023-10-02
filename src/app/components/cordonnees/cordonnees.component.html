@@ -84,24 +84,34 @@
                             <span class="uh round"></span>
                             <span class="libelle">Madame</span>
                           </label>
-                          
+                          <div class="form-error" *ngIf="!prospect.IdCivilite && validerClique">
+                            <div></div>
+                            <span>Veuillez sélectionner votre civilité.</span>
+                          </div>
                     </div>
-
+                  
                     <div class="marg20b">
                         <div class="input-root" style="width: 100%">
-                            <div class="input-group">
-                                <input type="text"
-                                    maxlength="35" 
-                                    class=" form-input form-control form-control-text form-control-text-ph"
-                                      [(ngModel)]="prospect.nom" placeholder="Nom">
-                            </div>
-                                 <div class="form-control-tooltip"   *ngIf="prospect.nom === '' && validerClique">
-                                    <div></div>
-
-                                    <span >Vous devez saisir votre nom.</span>
-                                </div>
-                        </div>
-                    </div>
+                          <div class="input-group">
+                            <input type="text"
+                                   maxlength="35"
+                                   class="form-input form-control form-control-text form-control-text-ph"
+                                   [(ngModel)]="prospect.nom"
+                                   placeholder="Nom"
+                                   >
+                          </div>
+                          <div class="form-error" *ngIf="prospect.nom === '' && validerClique">
+                            <div></div>
+                            <span>Veuillez saisir votre nom.</span>
+                          </div>
+                          <div class="form-error" *ngIf="!isNameValid() && validerClique">
+                            <div></div>
+                            <span>Le nom doit être uniquement composé de lettres.</span>
+                          </div>
+                      
+                     </div>
+                      </div>
+                      
 
                     <div class="marg20b">
 
@@ -116,27 +126,36 @@
                                 placeholder="Prénom"
                                 style="text-transform: capitalize;">
                             
-                                
                             </div>
-                            <div class="form-control-tooltip"  *ngIf="prospect.prenom === '' && validerClique">
+                            <div class="form-error"  *ngIf="prospect.prenom === '' && validerClique">
                                <div></div>
                                 <span >Vous devez saisir votre prénom.</span>
-                            </div>                       
+                            </div>
+                            <div class="form-error" *ngIf="!isprenomValid() && validerClique">
+                                <div></div>
+                                <span>Le prenom doit être uniquement composé de lettres.</span>
+                              </div>                       
                         </div>
                     </div>
 
                     <div class="marg20b">
                         <div style="width:100%">
-                            <div class="input-group date"  >
-
+                            <div class="input-group date">
                                 <input  
                                     type="date" 
-                                    class=" form-input form-control form-control-date form-control-date-ph"
+                                    class="form-input form-control form-control-date form-control-date-ph"
                                     [(ngModel)]="prospect.dateNaissance"  
-                                    placeholder="__/__/____" maxlength="8">
+                                    placeholder="__/__/____" 
+                                    maxlength="10"
+                                    required  
+                                    pattern="\d{2}/\d{2}/\d{4}"  
+                                     >
                             </div>
                         </div>
-                   </div>
+                    </div>
+                    
+                      
+                      
                     <div class="marg20b">
 
                         <div style="position:relative;width:100%">
@@ -253,7 +272,7 @@
                                 <option value="988">Nouvelle-Calédonie (988)</option>
 
                             </select>
-                            <div class="form-control-tooltip" *ngIf="prospect.depNaissance === '' && validerClique">
+                            <div class="form-error" *ngIf="prospect.depNaissance === '' && validerClique">
                                 <div></div>
                                 <span >Vous devez sélectionner votre département de naissance.</span>
                             </div>
@@ -270,16 +289,21 @@
                         <div class="marg20b marg20t">
                             <div class="input-root" style="width: 100%">
                                 <div class="input-group">
-                                    <input  type="email"
-                                        maxlength="40" 
-                                        class=" form-input form-control form-control-text form-control-text-ph"
-                        [(ngModel)]="prospect.email" placeholder="E-mail">                                    
-                                     
+                                    <input type="email"
+                                    class="form-input form-control form-control-text form-control-text-ph"
+                                    [(ngModel)]="prospect.email"
+                                    placeholder="E-mail"
+                                    >
                                  </div>
-                                 <div class="form-control-tooltip"  *ngIf="prospect.email === '' && validerClique">
+                                                
+                                 <div class="form-error"  *ngIf="prospect.email === '' && validerClique">
                                     <div></div>
-                                    <span >Vous devez saisir votre Email.</span>
+                                    <span >Veuillez saisir votre adresse e-mail .</span>
                                 </div>
+                                <div class="form-error" *ngIf="!isEmailValid(prospect.email) && validerClique">
+                                    <div></div>
+                                    <span>Veuillez saisir une adresse e-mail valide.</span>
+                                 </div>
                             </div>
                         </div>
                     
@@ -335,7 +359,7 @@
                 </div>
                 <div class="marg30t marg10b">
 
-                    <input type="button" (click)="validerprospect(); passerAuLivraison()" value="Valider" class="btn btn-dark btn-valider center-block disableClick">
+                    <input type="button" (click)="validerprospect();" value="Valider" class="btn btn-dark btn-valider center-block disableClick">
  
 
                 </div>

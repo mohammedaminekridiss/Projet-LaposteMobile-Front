@@ -1,5 +1,8 @@
-     <link href="/assets/paiement/site.min.css" rel="stylesheet">
-   <div class="container-fluid mrgt-30">
+<link href="/assets/paiement/site.min.css" rel="stylesheet">
+<link href="/assets/telephones/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/telephones/site.min.css" rel="stylesheet">
+<link href="/assets/telephones/lpm-controles-ui.css" rel="stylesheet">
+<div class="container-fluid mrgt-30">
     <div class="row">
         <div class="col-lg-2 col-md-2 col-12 align-center-xs-down">
             <div class="logo-lpm "></div>
@@ -10,213 +13,247 @@
         <div class="col-md-10 col-lg-10 col-sm-12 col-12 ">
             <div class="row justify-content-center-sm-down">
 
-                
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none mrgl-sm-menu ">
-                          <a href="https://www.lapostemobile.fr/coordonnees" class="link"><div class="checked-step-icon"></div></a>       
-                            &nbsp;
-							<span class="txt-checked-step d-none d-lg-block d-md-block d-sm-block">       <a href="https://www.lapostemobile.fr/coordonnees" class="link">Qui êtes-vous ?</a>   </span>
-							
-							
-                        
-						</div>
-                        
-                            <div class="col-1  d-block d-sm-none">
-                                <div class="line"></div>
-                            </div>
-                        
-                    
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
-                          <a href="https://www.lapostemobile.fr/livraison" class="link"><div class="checked-step-icon"></div></a>       
-                            &nbsp;
-							<span class="txt-checked-step d-none d-lg-block d-md-block d-sm-block">       <a href="https://www.lapostemobile.fr/livraison" class="link">Livraison</a>   </span>
-							
-							
-                        
-						</div>
-                        
-                            <div class="col-1  d-block d-sm-none">
-                                <div class="line"></div>
-                            </div>
-                        
-                    
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
-                          <div class="current-step-icon"></div>       
-                            &nbsp;
-							<span class="txt-current-step d-none d-lg-block d-md-block d-sm-block">       Paiement   </span>
-							
-							
-                        
-						</div>
-                        
-                            <div class="col-1  d-block d-sm-none">
-                                <div class="line"></div>
-                            </div>
-                        
-                    
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
-                          <div class="not-checked-step-icon"></div>       
-                            &nbsp;
-							<span class="txt-not-checked-step d-none d-lg-block d-md-block d-sm-block">       Confirmation   </span>
-							
-							
-                        
-						</div>
-                        
-                    
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none mrgl-sm-menu ">
+                    <a (click)="naviguerVersErreur()"class="link">
+                        <div class="checked-step-icon"></div>
+                    </a>
+                    &nbsp;
+                    <span class="txt-checked-step d-none d-lg-block d-md-block d-sm-block"> <a
+                        (click)="naviguerVersErreur()"class="link">Qui êtes-vous ?</a> </span>
+
+
+
+                </div>
+
+                <div class="col-1  d-block d-sm-none">
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
+                    <a (click)="naviguerVersErreur()" class="link">
+                        <div class="checked-step-icon"></div>
+                    </a>
+                    &nbsp;
+                    <span class="txt-checked-step d-none d-lg-block d-md-block d-sm-block"> <a
+                        (click)="naviguerVersErreur()" class="link">Livraison</a> </span>
+
+
+
+                </div>
+
+                <div class="col-1  d-block d-sm-none">
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
+                    <div class="current-step-icon"></div>
+                    &nbsp;
+                    <span class="txt-current-step d-none d-lg-block d-md-block d-sm-block"> Paiement </span>
+
+
+
+                </div>
+
+                <div class="col-1  d-block d-sm-none">
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-1 d-inline-horizontal padding-none  ">
+                    <div class="not-checked-step-icon"></div>
+                    &nbsp;
+                    <span class="txt-not-checked-step d-none d-lg-block d-md-block d-sm-block"> Confirmation </span>
+
+
+
+                </div>
+
+
             </div>
         </div>
     </div>
     <div class="row d-block d-sm-none">
         <br>
         <div class=" col-12 d-block d-sm-none align-center-xs-down">
-            <span id="usrEtapesSouscriptionWeb_spanCurrentStepMobile" class="txt-current-step-mobile">Paiement</span>
+            <span class="txt-current-step-mobile">Paiement</span>
         </div>
     </div>
 </div>
- <main>           
-    <div class="container-fluid brume-bleu">
+<main>
+    <div class="container-fluid text-center brume-bleu">
         <div class="row">
+            <div class="col-md-2"></div>
             <div class="col-12 col-md-8">
                 <div>
-                    <div  class="panel-paiement marg10t marg10b">
-                            <h5 class="mb-0">1. Votre paiement mensuel </h5>
-                            <hr>
-                            <div class="marg30tb">
-                                Le paiement de votre abonnement et vos options se fera par prélèvement bancaire à compter de votre 2ème facture. Vous pouvez décider de changer de mode de paiement
-                                à tout moment en contactant le Service Client.
-                                <div class="marg30tb sous-panel-paiement-small">
-<div class="marg20b">   
-    <div class="input-group">
-        <input   type="text" maxlength="40"  class="form-control text-uppercase form-input form-control form-control-text form-control-text-ph">
-        <div>
-            <label class="form-label">
-                <span class="form-label-span">Titulaire du compte</span>
-            </label>
-        </div>
-    </div>   
- </div>
+                    <div class="panel-paiement marg10t marg10b">
+                        <h5 class="mb-0">1. Votre paiement mensuel </h5>
+                        <hr>
+                        <div class="marg30tb">
+                            Le paiement de votre abonnement et vos options se fera par prélèvement bancaire à compter de
+                            votre 2ème facture. Vous pouvez décider de changer de mode de paiement
+                            à tout moment en contactant le Service Client.
+                            <div class="marg30tb sous-panel-paiement-small">
+                                <div class="marg20b">
+                                    <div class="input-group">
+                                        <input type="text" maxlength="40"
+                                            class="form-control text-uppercase form-input form-control form-control-text form-control-text-ph">
+                                        <div>
+                                            <label class="form-label">
+                                                <span class="form-label-span">Titulaire du compte</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-<div class="marg20b">   
-    <div class="input-group">
-        <input   type="text" maxlength="58"  class="text-uppercase form-input form-control form-control-text form-control-text-ph">   
-        <div>
-            <label class="form-label">
-                <span class="form-label-span">Nom de la banque</span>
-            </label>
-        </div>
-    </div>    
-</div>
+                                <div class="marg20b">
+                                    <div class="input-group">
+                                        <input type="text" maxlength="58"
+                                            class="text-uppercase form-input form-control form-control-text form-control-text-ph">
+                                        <div>
+                                            <label class="form-label">
+                                                <span class="form-label-span">Nom de la banque</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-<div class="marg20b">
-     <div class="input-group">
-        <input type="text" maxlength="42" class="form-control text-uppercase iban cflou form-input form-control form-control-text form-control-text-ph">        
-        <div>
-            <label class="form-label"  >
-                <span class="form-label-span">IBAN</span>
-            </label>
-        </div>
-  
-</div>
-</div>
+                                <div class="marg20b">
+                                    <div class="input-group">
+                                        <input type="text" maxlength="42"
+                                            class="form-control text-uppercase iban cflou form-input form-control form-control-text form-control-text-ph">
+                                        <div>
+                                            <label class="form-label">
+                                                <span class="form-label-span">IBAN</span>
+                                            </label>
+                                        </div>
 
-<div class="marg20b">
-        <div class="input-group">
-        <input  type="text" maxlength="11"  class="form-control text-uppercase cflou form-input form-control form-control-text form-control-text-ph">
-        <div>
-            <label class="form-label" >
-                <span class="form-label-span">Code BIC/Swift</span>
-            </label>
-        </div>
- </div>
-</div> 
+                                    </div>
+                                </div>
 
+                                <div class="marg20b">
+                                    <div class="input-group">
+                                        <input type="text" maxlength="11"
+                                            class="form-control text-uppercase cflou form-input form-control form-control-text form-control-text-ph">
+                                        <div>
+                                            <label class="form-label">
+                                                <span class="form-label-span">Code BIC/Swift</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-</div>
-</div>
-<div class="marg30b">
-<div  class="marg20b">
-    <div class="d-xs-block d-md-inline-block texte-bleu">
-        <img src="/assets/paiement/Icons-Design-pdf.svg "class="lien-text-lpm">Guide Tarifaire
-    </div>
-    <div class="d-xs-block d-md-inline-block texte-bleu">
-        <img src="/assets/paiement/Icons-Design-pdf.svg"class="lien-text-lpm">Conditions Générales d'Abonnement
-    </div>
-    <div   class="d-xs-block d-md-inline-block texte-bleu">
-        <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Conditions Générales de Vente
-    </div>
-    
-    <div   class="d-xs-block d-md-inline-block texte-bleu ">
-        <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Fiche d'Information et de Conseil
-    </div>
-    
-    <div class="d-xs-block d-md-inline-block texte-bleu">
-        <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Récapitulatif contractuel
-      </div>
-      
-    <br>
-    <br>
-    
-
-<label class="ug form-control-checkbox-font14 ">
-    <span class="uh"></span>
-    <span class="libelle">J'ai pris connaissance et accepte le Récapitulatif contractuel, le Guide Tarifaire, les Conditions Générales d'Abonnement, les Conditions Générales de Vente (si vous avez acheté un téléphone), la Fiche d'Information et de Conseil, ainsi que les Conditions Générales d'Assurance et le Document d'Information sur le Produit d'Assurance du contrat d'assurance auquel je demande à souscrire le cas échéant.</span>
-</label>
-	</div>
 
                             </div>
+                        </div>
+                        <div class="marg30b">
+                            <div class="marg20b">
+                                <div class="d-xs-block d-md-inline-block texte-bleu">
+                                    <img src="/assets/paiement/Icons-Design-pdf.svg " class="lien-text-lpm">Guide
+                                    Tarifaire
+                                </div>
+                                <div class="d-xs-block d-md-inline-block texte-bleu">
+                                    <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Conditions
+                                    Générales d'Abonnement
+                                </div>
+                                <div class="d-xs-block d-md-inline-block texte-bleu">
+                                    <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Conditions
+                                    Générales de Vente
+                                </div>
 
-                            <div class="row pad20b">
-                                <div class="col-md-12 text-center btn-paiement-row">
-                                    <div id="validation-boutons">
-                                        <a onclick="" class="btn btn-lg btn-dark btn-valider btn-valider-xs disableClick" >Valider</a>
-                                    </div>
+                                <div class="d-xs-block d-md-inline-block texte-bleu ">
+                                    <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Fiche
+                                    d'Information et de Conseil
+                                </div>
+
+                                <div class="d-xs-block d-md-inline-block texte-bleu">
+                                    <img src="/assets/paiement/Icons-Design-pdf.svg" class="lien-text-lpm">Récapitulatif
+                                    contractuel
+                                </div>
+
+                                <br>
+                                <br>
+
+
+                                <label class="ug form-control-checkbox-font14 ">
+                                    <span class="uh"></span>
+                                    <span class="libelle">J'ai pris connaissance et accepte le Récapitulatif
+                                        contractuel, le Guide Tarifaire, les Conditions Générales d'Abonnement, les
+                                        Conditions Générales de Vente (si vous avez acheté un téléphone), la Fiche
+                                        d'Information et de Conseil, ainsi que les Conditions Générales d'Assurance et
+                                        le Document d'Information sur le Produit d'Assurance du contrat d'assurance
+                                        auquel je demande à souscrire le cas échéant.</span>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="row pad20b">
+                            <div class="col-md-12 text-center btn-paiement-row">
+                                <div id="validation-boutons">
+                                    <a onclick=""
+                                        class="btn btn-lg btn-dark btn-valider btn-valider-xs disableClick">Valider</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
 
-                        <div  class="panel-paiement marg10b">
-                            <div  class="pad10b">
-                                <h5 class="mb-0">2. Votre paiement du jour </h5>
-                            </div>
+                    <div class="panel-paiement marg10b">
+                        <div class="pad10b">
+                            <h5 class="mb-0">2. Votre paiement du jour </h5>
                         </div>
-
-                        
-
-                    
-</div>
+                    </div>
+                </div>
             </div>
             <div id="div_mentions_legales" class="col-12 col-md-8">
                 <div class="marg20t" style="font-size: smaller;">
-                    
 
-<style>
-    .lien-ml {
-        color: black !important;
-        font-family: 'Nexa';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 12px;
-        cursor: pointer;
-        text-decoration: underline !important;
-    }
-</style>
 
-<div class="brume-bleu">
-    <a style="display:flex" role="button" data-toggle="collapse" href="https://www.lapostemobile.fr/paiement-atos#collapseML" aria-expanded="false" aria-controls="collapseML" class="lien-ml">
-        <b>Mentions Légales</b>
-        <div class="icon-black-caret"></div>
-    </a>
 
-    <br>
-    <br>
-    <div class="collapse " id="collapseML">
-        <div class="f12 text-justify">
-            <strong>Moyens de paiement : </strong> <br>La Poste Mobile accepte également les moyens de paiement suivants : paiement par chèque, paiement par carte bancaire, carte Visa et carte Mastercard, paiement par Efficash en bureau de poste. Vous pouvez décider à tout moment de changer de mode de paiement en contactant le Service Client depuis la page Contact du site internet. <br> <br><strong>Délai de rétractation : </strong> <br>Vous bénéficiez d'un délai de rétractation de 14 jours à compter de la réception du produit (mobile, accessoire) ou de la carte SIM ou la souscription d'un service (offre ou option) sans envoi d'un produit ou d'une carte SIM. Pour ercer votre droit,vous devez nous retourner formulaire de rétractation joint à votre contrat et accessible sur la page Conditions et tarifs du site internet ou nous écrire à LA POSTE MOBILE - TSA 16759 - 95905 Cergy Pontoire Cedex 9. Vous disposez alors d'un délai de 14 jours pour nous retourner le produit. <br>Après analyse du produit retourné, si celui-ci est restitué dans un état tel qu'il ne permet pas à LA POSTE MOBILE de le commercialiser de nouveau sur le marché dans les conditions visées à l'article 3.7.2 de nos Conditions Générales de Vente, vous pourrez vous voir appliquer, selon la typologie de dépréciation constatée, des indémnités correspondant à : <br>- Si choc(s) sur le mobile : 100% du prix du mobile seul et il vous sera renvoyé à l'adresse renseignée dans votre dossier client. <br>- Si rayure(s) sur le mobile : 30% du prix du mobile seul. <br>- En cas d'accessoire(s) fourni(s) avec le mobile, endommagé(s) ou manquant(s) : 5% du pris du mobile seul pour chaque accessoire endommagé ou manquant. <br>- En cas d'accessoire vendu séparémment du mobile et renvoyé endommagé : 100% du prix de l'accessoire et il vous sera renvoyé à l'adresse renseignée dans votre dossier client. <br>En cas de non-réception du mobile et des accessoires par LA POSTE MOBILE, ceux-ci pourront vous être facturés conformément à l'article 3.7.2 de nos <span style="text-decoration: underline;">Conditions Générales de Vente</span>. <br> <br> <br><br>
-        </div>
-    </div>
-</div>
+                    <div class="brume-bleu">
+                        <a style="display:flex" role="button" data-toggle="collapse"
+                            href="https://www.lapostemobile.fr/paiement-atos#collapseML" aria-expanded="false"
+                            aria-controls="collapseML" class="lien-ml">
+                            <b>Mentions Légales</b>
+                            <div class="icon-black-caret"></div>
+                        </a>
+
+                        <br>
+                        <br>
+                        <div class="collapse " id="collapseML">
+                            <div class="f12 text-justify">
+                                <strong>Moyens de paiement : </strong> <br>La Poste Mobile accepte également les moyens
+                                de paiement suivants : paiement par chèque, paiement par carte bancaire, carte Visa et
+                                carte Mastercard, paiement par Efficash en bureau de poste. Vous pouvez décider à tout
+                                moment de changer de mode de paiement en contactant le Service Client depuis la page
+                                Contact du site internet. <br> <br><strong>Délai de rétractation : </strong> <br>Vous
+                                bénéficiez d'un délai de rétractation de 14 jours à compter de la réception du produit
+                                (mobile, accessoire) ou de la carte SIM ou la souscription d'un service (offre ou
+                                option) sans envoi d'un produit ou d'une carte SIM. Pour ercer votre droit,vous devez
+                                nous retourner formulaire de rétractation joint à votre contrat et accessible sur la
+                                page Conditions et tarifs du site internet ou nous écrire à LA POSTE MOBILE - TSA 16759
+                                - 95905 Cergy Pontoire Cedex 9. Vous disposez alors d'un délai de 14 jours pour nous
+                                retourner le produit. <br>Après analyse du produit retourné, si celui-ci est restitué
+                                dans un état tel qu'il ne permet pas à LA POSTE MOBILE de le commercialiser de nouveau
+                                sur le marché dans les conditions visées à l'article 3.7.2 de nos Conditions Générales
+                                de Vente, vous pourrez vous voir appliquer, selon la typologie de dépréciation
+                                constatée, des indémnités correspondant à : <br>- Si choc(s) sur le mobile : 100% du
+                                prix du mobile seul et il vous sera renvoyé à l'adresse renseignée dans votre dossier
+                                client. <br>- Si rayure(s) sur le mobile : 30% du prix du mobile seul. <br>- En cas
+                                d'accessoire(s) fourni(s) avec le mobile, endommagé(s) ou manquant(s) : 5% du pris du
+                                mobile seul pour chaque accessoire endommagé ou manquant. <br>- En cas d'accessoire
+                                vendu séparémment du mobile et renvoyé endommagé : 100% du prix de l'accessoire et il
+                                vous sera renvoyé à l'adresse renseignée dans votre dossier client. <br>En cas de
+                                non-réception du mobile et des accessoires par LA POSTE MOBILE, ceux-ci pourront vous
+                                être facturés conformément à l'article 3.7.2 de nos <span
+                                    style="text-decoration: underline;">Conditions Générales de Vente</span>. <br> <br>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -228,28 +265,31 @@
 </main>
 <div class="footer container-fluid align-center-xs-down footer-position">
     <div class="row">
-        
+
         <div class="col-12 align-center-xs-down">
             <div class="line-footer"></div>
         </div>
     </div>
     <div class="row mrgt-15 ">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
-            <span class="footer-text-font"> <a href="https://www.lapostemobile.fr/mentions-legales" target="_blank">Mentions Légales</a></span>&nbsp; <br class=" d-block d-md-none">
-            <span class="footer-text-font"><a href="https://www.lapostemobile.fr/conditions-et-tarifs" target="_blank">Conditions Générales de Ventes</a></span>&nbsp; <br class=" d-block d-md-none">
-            <span class="footer-text-font"><a href="https://www.lapostemobile.fr/donnees" target="_blank">Données personnelles</a></span>&nbsp; <br class=" d-block d-md-none">
+            <span class="footer-text-font"> <a href="https://www.lapostemobile.fr/mentions-legales"
+                    target="_blank">Mentions Légales</a></span>&nbsp; <br class=" d-block d-md-none">
+            <span class="footer-text-font"><a href="https://www.lapostemobile.fr/conditions-et-tarifs"
+                    target="_blank">Conditions Générales de Ventes</a></span>&nbsp; <br class=" d-block d-md-none">
+            <span class="footer-text-font"><a href="https://www.lapostemobile.fr/donnees" target="_blank">Données
+                    personnelles</a></span>&nbsp; <br class=" d-block d-md-none">
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 col-12 offset-lg-2 offset-md-1 padding-none">
-			<br class=" d-block d-md-none">
+            <br class=" d-block d-md-none">
             <div class="d-inline-flex">
                 <div class="icon-cad"></div>
-             <span class="d-none d-md-block">&nbsp;</span> &nbsp;
-							<span class="">Paiement sécurisé</span><span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
-							<div class="icon-cb"></div>
-               <span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
-							<div class="icon-visa"></div>
-               <span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
-							<div class="icon-master-card"></div>
+                <span class="d-none d-md-block">&nbsp;</span> &nbsp;
+                <span class="">Paiement sécurisé</span><span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
+                <div class="icon-cb"></div>
+                <span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
+                <div class="icon-visa"></div>
+                <span class="d-none d-md-block">&nbsp;&nbsp;</span>&nbsp;
+                <div class="icon-master-card"></div>
             </div>
         </div>
 
@@ -257,5 +297,3 @@
 
     </div>
 </div>
-
- 
